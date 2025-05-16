@@ -1,16 +1,11 @@
-import Sidebar from "@/components/semantic/Sidebar";
-import Statistics from "@/components/Statistitcs";
-import Main from "@/components/semantic/Main";
 import { Poppins } from "next/font/google";
 import type { Metadata } from "next";
 import "./globals.css";
 
-const poppins = Poppins(
-  {
-    weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-    subsets: ["latin"]
-  }
-);
+const poppins = Poppins({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ["latin"]
+});
 
 export const metadata: Metadata = {
   title: "Vacancy Portal",
@@ -33,21 +28,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body
-        className={`${poppins.className} antialiased`}
-      >
-        <div className="flex">
-          <Sidebar />
-          <Main>
-            {children}
-          </Main>
-          <Statistics />
-        </div>
+    <html>
+      <body className={`${poppins.className} antialiased`}>
+        {children}
       </body>
     </html>
   );

@@ -1,0 +1,174 @@
+{
+    "navigation": {
+        "vacancies": "Vacancies",
+        "categories": "Categories",
+        "industries": "Industries",
+        "companies": "Companies",
+        "favorites": "Favorite Listings",
+        "subscriptions": "Category Subscriptions",
+        "about": "About Us",
+        "contact": "Contact",
+        "offers": "Special Offers"
+    },
+    "language": {
+        "az": "Azerbaijani",
+        "en": "English",
+        "ru": "Russian"
+    },
+    "common": {
+        "search": "Search",
+        "filter": "Filter",
+        "sort": "Sort by",
+        "apply": "Apply",
+        "cancel": "Cancel",
+        "save": "Save",
+        "delete": "Delete",
+        "edit": "Edit",
+        "view": "View",
+        "more": "More",
+        "loading": "Loading...",
+        "error": "An error occurred",
+        "noResults": "No results found",
+        "back": "Back",
+        "next": "Next",
+        "previous": "Previous"
+    },
+    "Vacancies": {
+        "title": "Available Vacancies",
+        "description": "Browse through our latest job openings",
+        "filters": {
+            "title": "Filter Vacancies",
+            "category": "Category",
+            "industry": "Industry",
+            "company": "Company",
+            "location": "Location",
+            "salary": "Salary Range",
+            "experience": "Experience Level",
+            "employment": "Employment Type"
+        },
+        "sort": {
+            "newest": "Newest First",
+            "oldest": "Oldest First",
+            "salaryHigh": "Highest Salary",
+            "salaryLow": "Lowest Salary"
+        },
+        "details": {
+            "description": "Job Description",
+            "otherVacancies": "Other Vacancies",
+            "noOtherVacancies": "No other vacancies from this company.",
+            "location": "Location",
+            "salary": "Salary",
+            "employmentType": "Employment Type",
+            "requirements": "Requirements",
+            "benefits": "Benefits",
+            "deadline": "Application Deadline",
+            "print": "Print",
+            "complain": "Complain",
+            "share": "Share",
+            "linkCopied": "Link copied!",
+            "apply": "Apply for job",
+            "emailInstructions": "Applicants are requested to copy below email for apply.",
+            "copied": "Copied!",
+            "copyToClipboard": "Copy to clipboard",
+            "telegramCTA": "Get the latest job updates on our <a href=\"https://t.me/yourchannel\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline text-blue-600\">Telegram channel</a>."
+        },
+        "complaint": {
+            "title": "Report Job Listing",
+            "description": "Help us maintain quality by reporting inappropriate or misleading job listings.",
+            "thankYou": "Thank You!",
+            "submitted": "Your report has been submitted successfully.",
+            "reason": "Reason for Report",
+            "selectReason": "Select a reason",
+            "reasons": {
+                "misleading": "Misleading Information",
+                "spam": "Spam or Scam",
+                "inappropriate": "Inappropriate Content",
+                "fake": "Fake Job Listing",
+                "discrimination": "Discrimination",
+                "other": "Other"
+            },
+            "details": "Additional Details",
+            "detailsPlaceholder": "Please provide more details about your report...",
+            "submitting": "Submitting...",
+            "submit": "Submit Report"
+        }
+    },
+    "Categories": {
+        "title": "Job Categories",
+        "description": "Browse jobs by category",
+        "popular": "Popular Categories",
+        "all": "All Categories"
+    },
+    "Industries": {
+        "title": "Industries",
+        "description": "Browse jobs by industry",
+        "popular": "Popular Industries",
+        "all": "All Industries"
+    },
+    "Companies": {
+        "title": "Companies",
+        "description": "Browse companies and their vacancies",
+        "featured": "Featured Companies",
+        "all": "All Companies",
+        "details": {
+            "about": "About Company",
+            "vacancies": "Open Positions",
+            "location": "Location",
+            "size": "Company Size",
+            "founded": "Founded",
+            "website": "Website"
+        }
+    },
+    "Favorites": {
+        "title": "Favorite Listings",
+        "description": "Your saved job listings",
+        "empty": "No saved listings yet",
+        "remove": "Remove from Favorites"
+    },
+    "Subscriptions": {
+        "title": "Category Subscriptions",
+        "description": "Manage your category subscriptions",
+        "subscribe": "Subscribe to Category",
+        "unsubscribe": "Unsubscribe",
+        "notifications": "Notification Settings"
+    },
+    "About": {
+        "title": "About Us",
+        "description": "Learn more about our platform",
+        "mission": "Our Mission",
+        "vision": "Our Vision",
+        "team": "Our Team",
+        "values": "Our Values"
+    },
+    "Contact": {
+        "title": "Contact Us",
+        "description": "Get in touch with us",
+        "form": {
+            "name": "Your Name",
+            "email": "Email Address",
+            "subject": "Subject",
+            "message": "Message",
+            "send": "Send Message"
+        },
+        "info": {
+            "address": "Address",
+            "phone": "Phone",
+            "email": "Email",
+            "hours": "Working Hours"
+        }
+    },
+    "Offers": {
+        "title": "Special Offers",
+        "description": "Exclusive deals and promotions",
+        "featured": "Featured Offers",
+        "expires": "Expires",
+        "terms": "Terms and Conditions"
+    },
+    "Statistics": {
+        "title": "Statistics",
+        "activeJobs": "Active Jobs",
+        "companies": "Companies",
+        "applications": "Applications",
+        "successRate": "Success Rate"
+    }
+} 

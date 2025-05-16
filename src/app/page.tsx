@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
+import { defaultLocale } from '@/i18n/config';
 
-export default function HomePage() {
-  redirect("/vacancies");
-  return null;
+export default function RootPage() {
+  redirect(`/${defaultLocale}`);
 }

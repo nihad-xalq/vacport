@@ -1,0 +1,174 @@
+{
+    "navigation": {
+        "vacancies": "Vakansiyalar",
+        "categories": "Kateqoriyalar",
+        "industries": "Sənayelər",
+        "companies": "Şirkətlər",
+        "favorites": "Seçilmişlər",
+        "subscriptions": "Abunəliklər",
+        "about": "Haqqımızda",
+        "contact": "Əlaqə",
+        "offers": "Təkliflər"
+    },
+    "language": {
+        "az": "Azərbaycan",
+        "en": "İngiliscə",
+        "ru": "Rusca"
+    },
+    "common": {
+        "search": "Axtar",
+        "filter": "Filter",
+        "sort": "Sırala",
+        "apply": "Müraciət et",
+        "cancel": "Ləğv et",
+        "save": "Yadda saxla",
+        "delete": "Sil",
+        "edit": "Düzəliş et",
+        "view": "Bax",
+        "more": "Ətraflı",
+        "loading": "Yüklənir...",
+        "error": "Xəta baş verdi",
+        "noResults": "Nəticə tapılmadı",
+        "back": "Geri",
+        "next": "İrəli",
+        "previous": "Əvvəlki"
+    },
+    "Vacancies": {
+        "title": "Mövcud Vakansiyalar",
+        "description": "Ən son vakansiyaları nəzərdən keçirin",
+        "filters": {
+            "title": "Vakansiyaları Filtrlə",
+            "category": "Kateqoriya",
+            "industry": "Sənaye",
+            "company": "Şirkət",
+            "location": "Məkan",
+            "salary": "Maaş Aralığı",
+            "experience": "Təcrübə Səviyyəsi",
+            "employment": "İş Növü"
+        },
+        "sort": {
+            "newest": "Ən Yeni",
+            "oldest": "Ən Köhnə",
+            "salaryHigh": "Yüksək Maaş",
+            "salaryLow": "Aşağı Maaş"
+        },
+        "details": {
+            "description": "İş Təsviri",
+            "otherVacancies": "Digər Vakansiyalar",
+            "noOtherVacancies": "Bu şirkətdən başqa vakansiya yoxdur.",
+            "location": "Məkan",
+            "salary": "Maaş",
+            "employmentType": "İş Növü",
+            "requirements": "Tələblər",
+            "benefits": "Faydalar",
+            "deadline": "Son Müraciət Tarixi",
+            "print": "Çap et",
+            "complain": "Şikayət et",
+            "share": "Paylaş",
+            "linkCopied": "Link kopyalandı!",
+            "apply": "Müraciət et",
+            "emailInstructions": "Müraciət üçün aşağıdakı email ünvanını kopyalayın.",
+            "copied": "Kopyalandı!",
+            "copyToClipboard": "Klikləyərək kopyalayın",
+            "telegramCTA": "Vakansiyalar haqqında məlumatı ən tez bizim <a href=\"https://t.me/yourchannel\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline text-blue-600\">Telegram kanalında</a> izləyə bilərsiniz."
+        },
+        "complaint": {
+            "title": "Vakansiya Haqqında Şikayət",
+            "description": "Keyfiyyəti qorumaq üçün uygunsuz və ya yanıldıcı vakansiyalar haqqında məlumat verin.",
+            "thankYou": "Təşəkkür edirik!",
+            "submitted": "Şikayətiniz uğurla göndərildi.",
+            "reason": "Şikayətin Səbəbi",
+            "selectReason": "Səbəb seçin",
+            "reasons": {
+                "misleading": "Yanıldıcı Məlumat",
+                "spam": "Spam və ya Fırıldaq",
+                "inappropriate": "Uygunsuz Məzmun",
+                "fake": "Saxta Vakansiya",
+                "discrimination": "Diskriminasiya",
+                "other": "Digər"
+            },
+            "details": "Əlavə Məlumat",
+            "detailsPlaceholder": "Şikayətiniz haqqında əlavə məlumat verin...",
+            "submitting": "Göndərilir...",
+            "submit": "Şikayəti Göndər"
+        }
+    },
+    "Categories": {
+        "title": "İş Kateqoriyaları",
+        "description": "Kateqoriyalara görə işlər",
+        "popular": "Populyar Kateqoriyalar",
+        "all": "Bütün Kateqoriyalar"
+    },
+    "Industries": {
+        "title": "Sənayelər",
+        "description": "Sənayelərə görə işlər",
+        "popular": "Populyar Sənayelər",
+        "all": "Bütün Sənayelər"
+    },
+    "Companies": {
+        "title": "Şirkətlər",
+        "description": "Şirkətlər və onların vakansiyaları",
+        "featured": "Seçilmiş Şirkətlər",
+        "all": "Bütün Şirkətlər",
+        "details": {
+            "about": "Şirkət Haqqında",
+            "vacancies": "Açıq Vakansiyalar",
+            "location": "Məkan",
+            "size": "Şirkət Ölçüsü",
+            "founded": "Qurulma Tarixi",
+            "website": "Veb Sayt"
+        }
+    },
+    "Favorites": {
+        "title": "Seçilmiş Vakansiyalar",
+        "description": "Yadda saxladığınız vakansiyalar",
+        "empty": "Hələ seçilmiş vakansiya yoxdur",
+        "remove": "Seçilmişlərdən Sil"
+    },
+    "Subscriptions": {
+        "title": "Kateqoriya Abunəlikləri",
+        "description": "Kateqoriya abunəliklərinizi idarə edin",
+        "subscribe": "Kateqoriyaya Abunə Ol",
+        "unsubscribe": "Abunəliyi Ləğv Et",
+        "notifications": "Bildiriş Parametrləri"
+    },
+    "About": {
+        "title": "Haqqımızda",
+        "description": "Platformamız haqqında ətraflı məlumat",
+        "mission": "Missiyamız",
+        "vision": "Vizyonumuz",
+        "team": "Komandamız",
+        "values": "Dəyərlərimiz"
+    },
+    "Contact": {
+        "title": "Bizimlə Əlaqə",
+        "description": "Bizimlə əlaqə saxlayın",
+        "form": {
+            "name": "Adınız",
+            "email": "Email Ünvanı",
+            "subject": "Mövzu",
+            "message": "Mesaj",
+            "send": "Mesaj Göndər"
+        },
+        "info": {
+            "address": "Ünvan",
+            "phone": "Telefon",
+            "email": "Email",
+            "hours": "İş Saatları"
+        }
+    },
+    "Offers": {
+        "title": "Xüsusi Təkliflər",
+        "description": "Eksklüziv təkliflər və promosiyalar",
+        "featured": "Seçilmiş Təkliflər",
+        "expires": "Bitmə Tarixi",
+        "terms": "Şərtlər və Qaydalar"
+    },
+    "Statistics": {
+        "title": "Statistika",
+        "activeJobs": "Aktiv İşlər",
+        "companies": "Şirkətlər",
+        "applications": "Müraciətlər",
+        "successRate": "Uğur Dərəcəsi"
+    }
+} 

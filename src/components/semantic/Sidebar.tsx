@@ -6,6 +6,11 @@ import { AiFillBank } from "react-icons/ai";
 import { FC, ReactNode } from "react";
 import Footer from "./Footer";
 import Link from "next/link";
+import LanguageSwitcher from '../LanguageSwitcher';
+import ThemeToggle from '../ThemeToggle';
+import { useLocale } from 'next-intl';
+import { useTranslations } from 'next-intl';
+import { type Locale } from '@/i18n/config';
 
 interface NavItem {
     label: string;
@@ -14,45 +19,48 @@ interface NavItem {
     badge?: string;
 }
 
-const mainNavItems: NavItem[] = [
-    {
-        label: "Elanlar",
-        href: "/vacancies",
-        icon: <FiBriefcase className="w-5 h-5" />,
-    },
-    {
-        label: "Kateqoriyalar",
-        href: "/categories",
-        icon: <FiDroplet className="w-5 h-5" />,
-    },
-    {
-        label: "Sənaye",
-        href: "/industries",
-        icon: <FiList className="w-5 h-5" />,
-    },
-    {
-        label: "Şirkətlər",
-        href: "/companies",
-        icon: <AiFillBank className="w-5 h-5" />,
-    },
-];
-
-const secondaryNavItems: NavItem[] = [
-    {
-        label: "Seçilmiş elanlar",
-        href: "/favorites",
-        icon: <FiMapPin className="w-5 h-5" />,
-        badge: "0",
-    },
-    {
-        label: "Abunə - kateqoriyalar",
-        href: "/subscriptions",
-        icon: <FiMail className="w-5 h-5" />,
-    },
-];
-
 const Sidebar: FC = () => {
     const pathname = usePathname();
+    const locale = useLocale() as Locale;
+    const t = useTranslations('navigation');
+    const common = useTranslations('common');
+
+    const mainNavItems: NavItem[] = [
+        {
+            label: t('vacancies'),
+            href: `/${locale}/vacancies`,
+            icon: <FiBriefcase className="w-5 h-5" />,
+        },
+        {
+            label: t('categories'),
+            href: `/${locale}/categories`,
+            icon: <FiDroplet className="w-5 h-5" />,
+        },
+        {
+            label: t('industries'),
+            href: `/${locale}/industries`,
+            icon: <FiList className="w-5 h-5" />,
+        },
+        {
+            label: t('companies'),
+            href: `/${locale}/companies`,
+            icon: <AiFillBank className="w-5 h-5" />,
+        },
+    ];
+
+    const secondaryNavItems: NavItem[] = [
+        {
+            label: t('favorites'),
+            href: `/${locale}/favorites`,
+            icon: <FiMapPin className="w-5 h-5" />,
+            badge: "0",
+        },
+        {
+            label: t('subscriptions'),
+            href: `/${locale}/subscriptions`,
+            icon: <FiMail className="w-5 h-5" />,
+        },
+    ];
 
     return (
         <aside className="w-72 min-h-screen bg-white border-r border-gray-200 flex flex-col justify-between py-6 px-4">
@@ -60,7 +68,7 @@ const Sidebar: FC = () => {
             <div>
                 <div className="flex items-center justify-between mb-8">
                     <span className="text-2xl font-bold text-blue-700">Vac<span className="text-green-500">Portal</span></span>
-                    <button className="border rounded-md px-2 py-1 text-xs text-gray-600">AZ ▼</button>
+                    <LanguageSwitcher currentLocale={locale} />
                 </div>
                 {/* Main Navigation */}
                 <nav className="flex flex-col gap-2">
@@ -78,9 +86,9 @@ const Sidebar: FC = () => {
                         );
                     })}
                 </nav>
-                {/* Sizin JobSearch Section */}
+                {/* Secondary Navigation Section */}
                 <div className="mt-8">
-                    <div className="text-xs text-gray-400 mb-2">Sizin JobSearch</div>
+                    <div className="text-xs text-gray-400 mb-2">{common('more')}</div>
                     <nav className="flex flex-col gap-2">
                         {secondaryNavItems.map((item) => {
                             const isActive = pathname === item.href;
@@ -100,12 +108,9 @@ const Sidebar: FC = () => {
                         })}
                     </nav>
                 </div>
-                {/* Light/Dark Mode Toggle */}
-                <div className="mt-8 flex items-center">
-                    <button className="flex items-center gap-1 bg-gray-100 border rounded-lg px-3 py-2">
-                        <span className="text-lg">🌞</span>
-                        <span className="text-lg">🌙</span>
-                    </button>
+                {/* Theme Toggle */}
+                <div className="mt-8">
+                    <ThemeToggle />
                 </div>
             </div>
             {/* Footer */}
