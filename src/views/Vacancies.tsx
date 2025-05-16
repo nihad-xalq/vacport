@@ -130,7 +130,7 @@ const Vacancies: FC = () => {
     const [showEmail, setShowEmail] = useState(false);
     const [copied, setCopied] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [showTooltip, setShowTooltip] = useState(false);
+    // const [showTooltip, setShowTooltip] = useState(false);
     const [showCopyTooltip, setShowCopyTooltip] = useState(false);
     const [showShareTooltip, setShowShareTooltip] = useState(false);
     const [showComplaintModal, setShowComplaintModal] = useState(false);

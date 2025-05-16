@@ -51,6 +51,7 @@ export default async function LocaleLayout({
         messages = (await import(`@/i18n/locales/${locale}.json`)).default;
     } catch (error) {
         notFound();
+        console.log(error);
     }
 
     return (

@@ -15,6 +15,7 @@ export default getRequestConfig(async ({locale}) => {
       now: new Date(),
     };
   } catch (error) {
+    console.log(error);
     // If there's an error loading messages, use the default locale
     return {
       locale: defaultLocale,
