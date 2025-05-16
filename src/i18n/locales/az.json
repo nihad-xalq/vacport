@@ -153,19 +153,30 @@
     },
     "Contact": {
         "title": "Bizimlə Əlaqə",
-        "description": "Bizimlə əlaqə saxlayın",
+        "description": "Hər hansı sual və ya narahatlığınız üçün bizimlə əlaqə saxlayın. Sizə kömək etməyə hazırıq!",
         "form": {
+            "title": "Bizə mesaj göndərin",
             "name": "Adınız",
             "email": "Email Ünvanı",
             "subject": "Mövzu",
-            "message": "Mesaj",
-            "send": "Mesaj Göndər"
+            "message": "Mesajınız",
+            "send": "Mesaj Göndər",
+            "sending": "Göndərilir...",
+            "success": "Mesajınız uğurla göndərildi. Tezliklə sizinlə əlaqə saxlayacağıq!"
         },
         "info": {
+            "title": "Əlaqə Məlumatları",
             "address": "Ünvan",
+            "addressContent": "123 Biznes Küçəsi, Bakı, Azərbaycan",
             "phone": "Telefon",
+            "phoneContent": "+994 12 345 67 89",
             "email": "Email",
-            "hours": "İş Saatları"
+            "emailContent": "contact@vacport.az",
+            "hours": "İş Saatları",
+            "hoursContent": "Bazar ertəsi - Cümə: 09:00 - 18:00",
+            "support": "Kömək Lazımdır?",
+            "supportContent": "Dəstək komandamız hər hansı sual və ya problemlərinizlə bağlı sizə kömək etmək üçün hazırdır.",
+            "contactSupport": "Dəstək ilə Əlaqə"
         }
     },
     "Offers": {

@@ -154,19 +154,30 @@
     },
     "Contact": {
         "title": "Contact Us",
-        "description": "Get in touch with us",
+        "description": "Get in touch with us for any questions or concerns. We're here to help!",
         "form": {
+            "title": "Send us a message",
             "name": "Your Name",
             "email": "Email Address",
             "subject": "Subject",
-            "message": "Message",
-            "send": "Send Message"
+            "message": "Your Message",
+            "send": "Send Message",
+            "sending": "Sending...",
+            "success": "Your message has been sent successfully. We'll get back to you soon!"
         },
         "info": {
+            "title": "Contact Information",
             "address": "Address",
+            "addressContent": "123 Business Street, Baku, Azerbaijan",
             "phone": "Phone",
+            "phoneContent": "+994 12 345 67 89",
             "email": "Email",
-            "hours": "Working Hours"
+            "emailContent": "contact@vacport.az",
+            "hours": "Working Hours",
+            "hoursContent": "Monday - Friday: 9:00 AM - 6:00 PM",
+            "support": "Need Help?",
+            "supportContent": "Our support team is available to assist you with any questions or issues you may have.",
+            "contactSupport": "Contact Support"
         }
     },
     "Offers": {
