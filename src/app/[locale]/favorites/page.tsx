@@ -1,5 +1,5 @@
-import Favorites from '@/views/Favorites';
+import Favorites from "@/views/Favorites";
 
 export default function FavoritesPage() {
-    return <Favorites />;
-} 
+  return <Favorites />;
+}

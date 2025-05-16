@@ -69,7 +69,7 @@ const Sidebar: FC = () => {
   ];
 
   return (
-    <aside className="w-64 min-h-screen bg-white border-r border-gray-200 flex flex-col justify-between py-6 px-4">
+    <aside className="w-68 min-h-screen bg-white border-r border-gray-200 flex flex-col justify-between py-6 px-4">
       {/* Top Section: Logo and Language */}
       <div>
         <div className="flex items-center justify-between mb-8">

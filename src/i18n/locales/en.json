@@ -1,243 +1,243 @@
 {
-    "navigation": {
-        "vacancies": "Vacancies",
-        "categories": "Categories",
-        "industries": "Industries",
-        "companies": "Companies",
-        "favorites": "Favorite Listings",
-        "subscriptions": "Category Subscriptions",
-        "about": "About Us",
-        "contact": "Contact",
-        "offers": "Special Offers"
+  "navigation": {
+    "vacancies": "Vacancies",
+    "categories": "Categories",
+    "industries": "Industries",
+    "companies": "Companies",
+    "favorites": "Favorites",
+    "subscriptions": "Subscriptions",
+    "about": "About",
+    "contact": "Contact",
+    "offers": "Special Offers"
+  },
+  "language": {
+    "az": "Azerbaijani",
+    "en": "English",
+    "ru": "Russian"
+  },
+  "common": {
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort by",
+    "apply": "Apply",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "view": "View",
+    "more": "More",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "noResults": "No results found",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "allRightsReserved": "All rights reserved"
+  },
+  "Vacancies": {
+    "title": "Available Vacancies",
+    "description": "Browse through our latest job openings",
+    "filters": {
+      "title": "Filter Vacancies",
+      "category": "Category",
+      "industry": "Industry",
+      "company": "Company",
+      "location": "Location",
+      "salary": "Salary Range",
+      "experience": "Experience Level",
+      "employment": "Employment Type"
     },
-    "language": {
-        "az": "Azerbaijani",
-        "en": "English",
-        "ru": "Russian"
+    "sort": {
+      "newest": "Newest First",
+      "oldest": "Oldest First",
+      "salaryHigh": "Highest Salary",
+      "salaryLow": "Lowest Salary"
     },
-    "common": {
-        "search": "Search",
-        "filter": "Filter",
-        "sort": "Sort by",
-        "apply": "Apply",
-        "cancel": "Cancel",
-        "save": "Save",
-        "delete": "Delete",
-        "edit": "Edit",
-        "view": "View",
-        "more": "More",
-        "loading": "Loading...",
-        "error": "An error occurred",
-        "noResults": "No results found",
-        "back": "Back",
-        "next": "Next",
-        "previous": "Previous",
-        "allRightsReserved": "All rights reserved"
+    "details": {
+      "description": "Job Description",
+      "otherVacancies": "Other Vacancies",
+      "noOtherVacancies": "No other vacancies from this company.",
+      "location": "Location",
+      "salary": "Salary",
+      "employmentType": "Employment Type",
+      "requirements": "Requirements",
+      "benefits": "Benefits",
+      "deadline": "Application Deadline",
+      "print": "Print",
+      "complain": "Complain",
+      "share": "Share",
+      "linkCopied": "Link copied!",
+      "apply": "Apply for job",
+      "emailInstructions": "Applicants are requested to copy below email for apply.",
+      "copied": "Copied!",
+      "copyToClipboard": "Copy to clipboard",
+      "telegramCTA": "Get the latest job updates on our <a href=\"https://t.me/yourchannel\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline text-blue-600\">Telegram channel</a>."
     },
-    "Vacancies": {
-        "title": "Available Vacancies",
-        "description": "Browse through our latest job openings",
-        "filters": {
-            "title": "Filter Vacancies",
-            "category": "Category",
-            "industry": "Industry",
-            "company": "Company",
-            "location": "Location",
-            "salary": "Salary Range",
-            "experience": "Experience Level",
-            "employment": "Employment Type"
-        },
-        "sort": {
-            "newest": "Newest First",
-            "oldest": "Oldest First",
-            "salaryHigh": "Highest Salary",
-            "salaryLow": "Lowest Salary"
-        },
-        "details": {
-            "description": "Job Description",
-            "otherVacancies": "Other Vacancies",
-            "noOtherVacancies": "No other vacancies from this company.",
-            "location": "Location",
-            "salary": "Salary",
-            "employmentType": "Employment Type",
-            "requirements": "Requirements",
-            "benefits": "Benefits",
-            "deadline": "Application Deadline",
-            "print": "Print",
-            "complain": "Complain",
-            "share": "Share",
-            "linkCopied": "Link copied!",
-            "apply": "Apply for job",
-            "emailInstructions": "Applicants are requested to copy below email for apply.",
-            "copied": "Copied!",
-            "copyToClipboard": "Copy to clipboard",
-            "telegramCTA": "Get the latest job updates on our <a href=\"https://t.me/yourchannel\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline text-blue-600\">Telegram channel</a>."
-        },
-        "complaint": {
-            "title": "Report Job Listing",
-            "description": "Help us maintain quality by reporting inappropriate or misleading job listings.",
-            "thankYou": "Thank You!",
-            "submitted": "Your report has been submitted successfully.",
-            "reason": "Reason for Report",
-            "selectReason": "Select a reason",
-            "reasons": {
-                "misleading": "Misleading Information",
-                "spam": "Spam or Scam",
-                "inappropriate": "Inappropriate Content",
-                "fake": "Fake Job Listing",
-                "discrimination": "Discrimination",
-                "other": "Other"
-            },
-            "details": "Additional Details",
-            "detailsPlaceholder": "Please provide more details about your report...",
-            "submitting": "Submitting...",
-            "submit": "Submit Report"
-        }
-    },
-    "Categories": {
-        "title": "Job Categories",
-        "description": "Browse jobs by category",
-        "popular": "Popular Categories",
-        "all": "All Categories"
-    },
-    "Industries": {
-        "title": "Industries",
-        "description": "Browse jobs by industry",
-        "popular": "Popular Industries",
-        "all": "All Industries"
-    },
-    "Companies": {
-        "title": "Companies",
-        "description": "Browse companies and their vacancies",
-        "featured": "Featured Companies",
-        "all": "All Companies",
-        "details": {
-            "about": "About Company",
-            "vacancies": "Open Positions",
-            "location": "Location",
-            "size": "Company Size",
-            "founded": "Founded",
-            "website": "Website"
-        }
-    },
-    "Favorites": {
-        "title": "Favorite Listings",
-        "description": "Your saved job listings",
-        "empty": "No saved listings yet",
-        "remove": "Remove from Favorites"
-    },
-    "Subscriptions": {
-        "title": "Category Subscriptions",
-        "description": "Manage your category subscriptions",
-        "subscribe": "Subscribe to Category",
-        "unsubscribe": "Unsubscribe",
-        "notifications": "Notification Settings"
-    },
-    "About": {
-        "title": "About Us",
-        "description": "Learn more about our platform and our commitment to connecting talent with opportunity",
-        "mission": "Our Mission",
-        "missionContent": "To empower job seekers and employers by providing a seamless, efficient, and transparent platform for job discovery and recruitment. We strive to bridge the gap between talent and opportunity, making the job search process more accessible and effective for everyone.",
-        "vision": "Our Vision",
-        "visionContent": "To become the leading job portal in Azerbaijan, transforming how people find jobs and how companies hire talent. We envision a future where every qualified candidate can find their dream job and every employer can find their ideal team member.",
-        "team": "Our Team",
-        "teamContent": "We are a dedicated team of professionals passionate about technology and human resources. Our diverse team brings together expertise in software development, HR management, and user experience to create the best possible platform for our users.",
-        "values": "Our Values",
-        "valuesContent": "We are committed to innovation, transparency, and user satisfaction. Our values guide everything we do, from platform development to customer service. We believe in continuous improvement and putting our users' needs first.",
-        "whyChooseUs": "Why Choose VacPort",
-        "feature1Title": "User-Friendly Platform",
-        "feature1Description": "Our intuitive interface makes job searching and posting simple and efficient for everyone.",
-        "feature2Title": "Verified Listings",
-        "feature2Description": "Every job posting is verified to ensure authenticity and protect our users from scams.",
-        "feature3Title": "24/7 Support",
-        "feature3Description": "Our dedicated support team is always ready to help you with any questions or concerns."
-    },
-    "Contact": {
-        "title": "Contact Us",
-        "description": "Get in touch with us for any questions or concerns. We're here to help!",
-        "form": {
-            "title": "Send us a message",
-            "name": "Your Name",
-            "email": "Email Address",
-            "subject": "Subject",
-            "message": "Your Message",
-            "send": "Send Message",
-            "sending": "Sending...",
-            "success": "Your message has been sent successfully. We'll get back to you soon!"
-        },
-        "info": {
-            "title": "Contact Information",
-            "address": "Address",
-            "addressContent": "123 Business Street, Baku, Azerbaijan",
-            "phone": "Phone",
-            "phoneContent": "+994 12 345 67 89",
-            "email": "Email",
-            "emailContent": "contact@vacport.az",
-            "hours": "Working Hours",
-            "hoursContent": "Monday - Friday: 9:00 AM - 6:00 PM",
-            "support": "Need Help?",
-            "supportContent": "Our support team is available to assist you with any questions or issues you may have.",
-            "contactSupport": "Contact Support"
-        }
-    },
-    "Offers": {
-        "title": "Special Offers",
-        "description": "Exclusive deals and promotions to help you find the perfect talent or job opportunity",
-        "new": "New",
-        "expires": "Expires",
-        "getStarted": "Get Started",
-        "premiumFeature": "Premium Feature",
-        "premiumListing": {
-            "title": "Premium Job Listing",
-            "description": "Get your job posting featured at the top of search results with enhanced visibility and priority placement.",
-            "terms": {
-                "featured": "Featured placement in search results",
-                "priority": "Priority listing in relevant categories",
-                "analytics": "Detailed analytics and insights",
-                "support": "Dedicated support team access"
-            }
-        },
-        "bundlePack": {
-            "title": "Bundle Pack",
-            "description": "Post multiple job listings at once with our cost-effective bundle package.",
-            "terms": {
-                "multiple": "Post up to 5 job listings",
-                "discount": "Special bundle discount",
-                "flexibility": "Flexible posting schedule",
-                "validity": "Valid for 6 months"
-            }
-        },
-        "startupPack": {
-            "title": "Startup Pack",
-            "description": "Perfect for growing companies looking to establish their presence in the job market.",
-            "terms": {
-                "basic": "Basic job listing features",
-                "visibility": "Standard visibility in search",
-                "support": "Email support",
-                "upgrade": "Option to upgrade to premium"
-            }
-        },
-        "terms": {
-            "title": "Terms and Conditions",
-            "description": "All offers are subject to our terms and conditions. Premium features may require additional verification. Contact our support team for more information."
-        }
-    },
-    "Statistics": {
-        "title": "Statistics",
-        "live": "Live",
-        "daily": "Daily",
-        "weekly": "Weekly",
-        "monthly": "Monthly",
-        "dailyDescription": "New job postings today",
-        "weeklyDescription": "New job postings this week",
-        "monthlyDescription": "New job postings this month",
-        "activeUsers": "Active Users",
-        "totalListings": "Total Listings",
-        "premiumListings": "Premium Listings",
-        "countries": "Countries",
-        "mostViewed": "Most Viewed Position",
-        "mostActiveCategory": "Most Active Category",
-        "frontendDeveloper": "Frontend Developer",
-        "itTechnology": "IT & Technology"
+    "complaint": {
+      "title": "Report Job Listing",
+      "description": "Help us maintain quality by reporting inappropriate or misleading job listings.",
+      "thankYou": "Thank You!",
+      "submitted": "Your report has been submitted successfully.",
+      "reason": "Reason for Report",
+      "selectReason": "Select a reason",
+      "reasons": {
+        "misleading": "Misleading Information",
+        "spam": "Spam or Scam",
+        "inappropriate": "Inappropriate Content",
+        "fake": "Fake Job Listing",
+        "discrimination": "Discrimination",
+        "other": "Other"
+      },
+      "details": "Additional Details",
+      "detailsPlaceholder": "Please provide more details about your report...",
+      "submitting": "Submitting...",
+      "submit": "Submit Report"
     }
-} 
+  },
+  "Categories": {
+    "title": "Job Categories",
+    "description": "Browse jobs by category",
+    "popular": "Popular Categories",
+    "all": "All Categories"
+  },
+  "Industries": {
+    "title": "Industries",
+    "description": "Browse jobs by industry",
+    "popular": "Popular Industries",
+    "all": "All Industries"
+  },
+  "Companies": {
+    "title": "Companies",
+    "description": "Browse companies and their vacancies",
+    "featured": "Featured Companies",
+    "all": "All Companies",
+    "details": {
+      "about": "About Company",
+      "vacancies": "Open Positions",
+      "location": "Location",
+      "size": "Company Size",
+      "founded": "Founded",
+      "website": "Website"
+    }
+  },
+  "Favorites": {
+    "title": "Favorites",
+    "description": "Your saved job listings",
+    "empty": "No saved listings yet",
+    "remove": "Remove from Favorites"
+  },
+  "Subscriptions": {
+    "title": "Subscriptions",
+    "description": "Manage your category subscriptions",
+    "subscribe": "Subscribe to Category",
+    "unsubscribe": "Unsubscribe",
+    "notifications": "Notification Settings"
+  },
+  "About": {
+    "title": "About",
+    "description": "Learn more about our platform and our commitment to connecting talent with opportunity",
+    "mission": "Our Mission",
+    "missionContent": "To empower job seekers and employers by providing a seamless, efficient, and transparent platform for job discovery and recruitment. We strive to bridge the gap between talent and opportunity, making the job search process more accessible and effective for everyone.",
+    "vision": "Our Vision",
+    "visionContent": "To become the leading job portal in Azerbaijan, transforming how people find jobs and how companies hire talent. We envision a future where every qualified candidate can find their dream job and every employer can find their ideal team member.",
+    "team": "Our Team",
+    "teamContent": "We are a dedicated team of professionals passionate about technology and human resources. Our diverse team brings together expertise in software development, HR management, and user experience to create the best possible platform for our users.",
+    "values": "Our Values",
+    "valuesContent": "We are committed to innovation, transparency, and user satisfaction. Our values guide everything we do, from platform development to customer service. We believe in continuous improvement and putting our users' needs first.",
+    "whyChooseUs": "Why Choose VacPort",
+    "feature1Title": "User-Friendly Platform",
+    "feature1Description": "Our intuitive interface makes job searching and posting simple and efficient for everyone.",
+    "feature2Title": "Verified Listings",
+    "feature2Description": "Every job posting is verified to ensure authenticity and protect our users from scams.",
+    "feature3Title": "24/7 Support",
+    "feature3Description": "Our dedicated support team is always ready to help you with any questions or concerns."
+  },
+  "Contact": {
+    "title": "Contact",
+    "description": "Get in touch with us for any questions or concerns. We're here to help!",
+    "form": {
+      "title": "Send us a message",
+      "name": "Your Name",
+      "email": "Email Address",
+      "subject": "Subject",
+      "message": "Your Message",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success": "Your message has been sent successfully. We'll get back to you soon!"
+    },
+    "info": {
+      "title": "Contact Information",
+      "address": "Address",
+      "addressContent": "123 Business Street, Baku, Azerbaijan",
+      "phone": "Phone",
+      "phoneContent": "+994 12 345 67 89",
+      "email": "Email",
+      "emailContent": "contact@vacport.az",
+      "hours": "Working Hours",
+      "hoursContent": "Monday - Friday: 9:00 AM - 6:00 PM",
+      "support": "Need Help?",
+      "supportContent": "Our support team is available to assist you with any questions or issues you may have.",
+      "contactSupport": "Contact Support"
+    }
+  },
+  "Offers": {
+    "title": "Special Offers",
+    "description": "Exclusive deals and promotions to help you find the perfect talent or job opportunity",
+    "new": "New",
+    "expires": "Expires",
+    "getStarted": "Get Started",
+    "premiumFeature": "Premium Feature",
+    "premiumListing": {
+      "title": "Premium Job Listing",
+      "description": "Get your job posting featured at the top of search results with enhanced visibility and priority placement.",
+      "terms": {
+        "featured": "Featured placement in search results",
+        "priority": "Priority listing in relevant categories",
+        "analytics": "Detailed analytics and insights",
+        "support": "Dedicated support team access"
+      }
+    },
+    "bundlePack": {
+      "title": "Bundle Pack",
+      "description": "Post multiple job listings at once with our cost-effective bundle package.",
+      "terms": {
+        "multiple": "Post up to 5 job listings",
+        "discount": "Special bundle discount",
+        "flexibility": "Flexible posting schedule",
+        "validity": "Valid for 6 months"
+      }
+    },
+    "startupPack": {
+      "title": "Startup Pack",
+      "description": "Perfect for growing companies looking to establish their presence in the job market.",
+      "terms": {
+        "basic": "Basic job listing features",
+        "visibility": "Standard visibility in search",
+        "support": "Email support",
+        "upgrade": "Option to upgrade to premium"
+      }
+    },
+    "terms": {
+      "title": "Terms and Conditions",
+      "description": "All offers are subject to our terms and conditions. Premium features may require additional verification. Contact our support team for more information."
+    }
+  },
+  "Statistics": {
+    "title": "Statistics",
+    "live": "Live",
+    "daily": "Daily",
+    "weekly": "Weekly",
+    "monthly": "Monthly",
+    "dailyDescription": "New job postings today",
+    "weeklyDescription": "New job postings this week",
+    "monthlyDescription": "New job postings this month",
+    "activeUsers": "Active Users",
+    "totalListings": "Total Listings",
+    "premiumListings": "Premium Listings",
+    "countries": "Countries",
+    "mostViewed": "Most Viewed Position",
+    "mostActiveCategory": "Most Active Category",
+    "frontendDeveloper": "Frontend Developer",
+    "itTechnology": "IT & Technology"
+  }
+}

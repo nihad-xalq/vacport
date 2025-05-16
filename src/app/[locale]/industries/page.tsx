@@ -1,5 +1,5 @@
-import Industries from '@/views/Industries';
+import Industries from "@/views/Industries";
 
 export default function IndustriesPage() {
-    return <Industries />;
-} 
+  return <Industries />;
+}

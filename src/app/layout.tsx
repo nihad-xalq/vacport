@@ -4,7 +4,7 @@ import "./globals.css";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-  subsets: ["latin"]
+  subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -17,13 +17,13 @@ export const metadata: Metadata = {
     "job portal",
     "employment",
     "hiring",
-    "applications"
+    "applications",
   ],
   authors: [{ name: "Vacancy Portal Team" }],
   viewport: "width=device-width, initial-scale=1",
   icons: {
-    icon: "/favicon.ico"
-  }
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -33,9 +33,7 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <body className={`${poppins.className} antialiased`}>
-        {children}
-      </body>
+      <body className={`${poppins.className} antialiased`}>{children}</body>
     </html>
   );
 }
