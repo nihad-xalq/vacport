@@ -1,6 +1,6 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { notFound } from 'next/navigation';
-import { locales } from '@/i18n/config';
+import { locales, type Locale } from '@/i18n/config';
 import Sidebar from "@/components/semantic/Sidebar";
 import Statistics from "@/components/Statistitcs";
 import Main from "@/components/semantic/Main";
@@ -32,19 +32,21 @@ export const metadata: Metadata = {
     }
 };
 
-export function generateStaticParams() {
+export function generateStaticParams(): { locale: string }[] {
     return locales.map((locale) => ({ locale }));
+}
+
+interface LocaleLayoutProps {
+    children: React.ReactNode;
+    params: { locale: string };
 }
 
 export default async function LocaleLayout({
     children,
     params: { locale }
-}: {
-    children: React.ReactNode;
-    params: { locale: string };
-}) {
+}: LocaleLayoutProps) {
     // Validate that the incoming `locale` parameter is valid
-    if (!locales.includes(locale as any)) notFound();
+    if (!locales.includes(locale as Locale)) notFound();
 
     let messages;
     try {

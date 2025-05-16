@@ -1,14 +1,21 @@
 "use client";
 
+import React from 'react';
 import { useTranslations } from 'next-intl';
 import { FiMail, FiPhone, FiMapPin, FiClock, FiSend, FiCheckCircle } from 'react-icons/fi';
-import { useState } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 
 interface ContactForm {
   name: string;
   email: string;
   subject: string;
   message: string;
+}
+
+interface ContactInfo {
+  icon: React.ReactElement;
+  title: string;
+  content: string;
 }
 
 const Contact = () => {
@@ -19,10 +26,10 @@ const Contact = () => {
     subject: '',
     message: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     
@@ -37,12 +44,12 @@ const Contact = () => {
     setTimeout(() => setIsSubmitted(false), 5000);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const contactInfo = [
+  const contactInfo: ContactInfo[] = [
     {
       icon: <FiMapPin className="w-6 h-6 text-blue-500" />,
       title: t('info.address'),

@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import Select from 'react-select';
+import React, { FC } from 'react';
+import Select, { SingleValue } from 'react-select';
 import { useRouter, usePathname } from 'next/navigation';
 import { locales, languageNames, type Locale } from '@/i18n/config';
 
@@ -7,11 +7,16 @@ interface LanguageSwitcherProps {
     currentLocale: Locale;
 }
 
+interface LanguageOption {
+    value: Locale;
+    label: React.ReactElement;
+}
+
 const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ currentLocale }) => {
     const router = useRouter();
     const pathname = usePathname();
 
-    const options = locales.map((locale) => ({
+    const options: LanguageOption[] = locales.map((locale) => ({
         value: locale,
         label: (
             <div className="flex items-center gap-2">
@@ -21,7 +26,9 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ currentLocale }) => {
         ),
     }));
 
-    const handleChange = (option: any) => {
+    const handleChange = (option: SingleValue<LanguageOption>) => {
+        if (!option) return;
+        
         const newLocale = option.value;
         // Here you would typically update the locale in your app's state management
         // For now, we'll just log it
