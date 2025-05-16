@@ -93,7 +93,7 @@ const Statistics: FC = () => {
   ];
 
   return (
-    <section className="w-full max-w-lg mx-auto p-6">
+    <section className="w-full max-w-lg mx-auto p-6 h-screen overflow-y-auto">
       <div className="flex items-center gap-2 mb-6">
         <span className="text-2xl font-extrabold text-blue-700">
           {t("title")}
@@ -104,16 +104,16 @@ const Statistics: FC = () => {
       </div>
 
       {/* Main indicators */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-1 gap-3 mb-10">
         {indicators.map((item) => (
           <div
             key={item.label}
-            className={`relative bg-gradient-to-br ${item.color} rounded-xl shadow-md p-6 flex flex-col items-center border border-gray-100 transition-transform hover:scale-105 hover:shadow-lg`}
+            className={`relative bg-gradient-to-br ${item.color} rounded-xl shadow-md p-3 flex flex-row justify-around items-center border border-gray-100 transition-transform`}
           >
-            <div className="absolute top-4 right-4 opacity-20 pointer-events-none">
+            <div className="absolute top-0 right-0 opacity-20 pointer-events-none">
               {item.icon}
             </div>
-            <span className="text-4xl font-extrabold text-blue-700 drop-shadow mb-2 z-10">
+            <span className="text-4xl font-extrabold text-blue-700 drop-shadow z-10">
               {item.value}
             </span>
             <span className="text-base font-semibold text-gray-700 z-10">
@@ -127,7 +127,7 @@ const Statistics: FC = () => {
       </div>
 
       {/* Extra stats */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
         {extraStats.map((stat) => (
           <div
             key={stat.label}
@@ -143,7 +143,7 @@ const Statistics: FC = () => {
       </div>
 
       {/* More stats */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-10">
         {moreStats.map((stat) => (
           <div
             key={stat.label}
@@ -159,13 +159,13 @@ const Statistics: FC = () => {
       </div>
 
       {/* Additional stats */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-1 gap-6">
         {additionalStats.map((stat) => (
           <div
             key={stat.label}
-            className="relative flex items-center gap-3 bg-gradient-to-br from-white via-gray-50 to-gray-100 rounded-xl shadow-lg px-6 py-5 border border-gray-100 hover:shadow-xl transition-all group h-[100px]"
+            className="relative flex items-center gap-3 bg-gradient-to-br from-white via-gray-50 to-gray-100 rounded-xl shadow-lg px-6 py-5 border border-gray-100 transition-all group h-[100px]"
           >
-            <span className="absolute -left-4 top-1/2 -translate-y-1/2 bg-gradient-to-br from-pink-200 via-cyan-200 to-white rounded-full p-2 shadow group-hover:scale-110 transition-transform">
+            <span className="absolute -left-4 top-1/2 -translate-y-1/2 bg-gradient-to-br from-pink-200 via-cyan-200 to-white rounded-full p-2 shadow transition-transform">
               {stat.icon}
             </span>
             <div className="ml-8">
