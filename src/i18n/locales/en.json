@@ -31,7 +31,8 @@
         "noResults": "No results found",
         "back": "Back",
         "next": "Next",
-        "previous": "Previous"
+        "previous": "Previous",
+        "allRightsReserved": "All rights reserved"
     },
     "Vacancies": {
         "title": "Available Vacancies",
@@ -134,11 +135,22 @@
     },
     "About": {
         "title": "About Us",
-        "description": "Learn more about our platform",
+        "description": "Learn more about our platform and our commitment to connecting talent with opportunity",
         "mission": "Our Mission",
+        "missionContent": "To empower job seekers and employers by providing a seamless, efficient, and transparent platform for job discovery and recruitment. We strive to bridge the gap between talent and opportunity, making the job search process more accessible and effective for everyone.",
         "vision": "Our Vision",
+        "visionContent": "To become the leading job portal in Azerbaijan, transforming how people find jobs and how companies hire talent. We envision a future where every qualified candidate can find their dream job and every employer can find their ideal team member.",
         "team": "Our Team",
-        "values": "Our Values"
+        "teamContent": "We are a dedicated team of professionals passionate about technology and human resources. Our diverse team brings together expertise in software development, HR management, and user experience to create the best possible platform for our users.",
+        "values": "Our Values",
+        "valuesContent": "We are committed to innovation, transparency, and user satisfaction. Our values guide everything we do, from platform development to customer service. We believe in continuous improvement and putting our users' needs first.",
+        "whyChooseUs": "Why Choose VacPort",
+        "feature1Title": "User-Friendly Platform",
+        "feature1Description": "Our intuitive interface makes job searching and posting simple and efficient for everyone.",
+        "feature2Title": "Verified Listings",
+        "feature2Description": "Every job posting is verified to ensure authenticity and protect our users from scams.",
+        "feature3Title": "24/7 Support",
+        "feature3Description": "Our dedicated support team is always ready to help you with any questions or concerns."
     },
     "Contact": {
         "title": "Contact Us",
@@ -159,16 +171,62 @@
     },
     "Offers": {
         "title": "Special Offers",
-        "description": "Exclusive deals and promotions",
-        "featured": "Featured Offers",
+        "description": "Exclusive deals and promotions to help you find the perfect talent or job opportunity",
+        "new": "New",
         "expires": "Expires",
-        "terms": "Terms and Conditions"
+        "getStarted": "Get Started",
+        "premiumFeature": "Premium Feature",
+        "premiumListing": {
+            "title": "Premium Job Listing",
+            "description": "Get your job posting featured at the top of search results with enhanced visibility and priority placement.",
+            "terms": {
+                "featured": "Featured placement in search results",
+                "priority": "Priority listing in relevant categories",
+                "analytics": "Detailed analytics and insights",
+                "support": "Dedicated support team access"
+            }
+        },
+        "bundlePack": {
+            "title": "Bundle Pack",
+            "description": "Post multiple job listings at once with our cost-effective bundle package.",
+            "terms": {
+                "multiple": "Post up to 5 job listings",
+                "discount": "Special bundle discount",
+                "flexibility": "Flexible posting schedule",
+                "validity": "Valid for 6 months"
+            }
+        },
+        "startupPack": {
+            "title": "Startup Pack",
+            "description": "Perfect for growing companies looking to establish their presence in the job market.",
+            "terms": {
+                "basic": "Basic job listing features",
+                "visibility": "Standard visibility in search",
+                "support": "Email support",
+                "upgrade": "Option to upgrade to premium"
+            }
+        },
+        "terms": {
+            "title": "Terms and Conditions",
+            "description": "All offers are subject to our terms and conditions. Premium features may require additional verification. Contact our support team for more information."
+        }
     },
     "Statistics": {
         "title": "Statistics",
-        "activeJobs": "Active Jobs",
-        "companies": "Companies",
-        "applications": "Applications",
-        "successRate": "Success Rate"
+        "live": "Live",
+        "daily": "Daily",
+        "weekly": "Weekly",
+        "monthly": "Monthly",
+        "dailyDescription": "New job postings today",
+        "weeklyDescription": "New job postings this week",
+        "monthlyDescription": "New job postings this month",
+        "activeUsers": "Active Users",
+        "totalListings": "Total Listings",
+        "premiumListings": "Premium Listings",
+        "countries": "Countries",
+        "mostViewed": "Most Viewed Position",
+        "mostActiveCategory": "Most Active Category",
+        "frontendDeveloper": "Frontend Developer",
+        "itTechnology": "IT & Technology"
     }
 } 

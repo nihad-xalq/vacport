@@ -134,11 +134,22 @@
     },
     "About": {
         "title": "Haqqımızda",
-        "description": "Platformamız haqqında ətraflı məlumat",
+        "description": "Platformamız və iş axtarışı sahəsindəki missiyamız haqqında ətraflı məlumat",
         "mission": "Missiyamız",
+        "missionContent": "İş axtaranlar və işəgötürənlər üçün şəffaf və effektiv platforma təqdim edərək, iş axtarışı prosesini hər kəs üçün daha əlçatan etmək. Bizim məqsədimiz bacarıqlı işçiləri və iş imkanlarını bir-biri ilə əlaqələndirməkdir.",
         "vision": "Vizyonumuz",
+        "visionContent": "Azərbaycanda aparıcı iş portalı olmaq və insanların iş tapma və şirkətlərin işçi tapma üsullarını dəyişdirmək. Biz hər bir ixtisaslı namizədin öz arzuladığı işi və hər bir işəgötürənin ideal komanda üzvünü tapa biləcəyi gələcək yaratmağı hədəfləyirik.",
         "team": "Komandamız",
-        "values": "Dəyərlərimiz"
+        "teamContent": "Biz texnologiya və insan resursları sahəsində peşəkar komandayıq. Müxtəlif təcrübəyə malik komandamız proqram təminatı, HR idarəetməsi və istifadəçi təcrübəsi sahələrində uzmanlıq birləşdirərək istifadəçilərimiz üçün ən yaxşı platformanı yaradırıq.",
+        "values": "Dəyərlərimiz",
+        "valuesContent": "Biz yenilikçilik, şəffaflıq və istifadəçi məmnuniyyətinə sadiqik. Dəyərlərimiz platformanın inkişafından müştəri xidmətinə qədər hər şeyi idarə edir. Biz davamlı təkmilləşməyə və istifadəçilərimizin ehtiyaclarını birinci yerə qoymağa inanırıq.",
+        "whyChooseUs": "Niyə VacPort",
+        "feature1Title": "İstifadəçi Dostu Platforma",
+        "feature1Description": "İntuitiv interfeysimiz iş axtarışı və elan vermə prosesini hər kəs üçün sadə və effektiv edir.",
+        "feature2Title": "Yoxlanılmış Elanlar",
+        "feature2Description": "Hər bir iş elanı həqiqiliyini təmin etmək və istifadəçilərimizi fırıldaqçılıqdan qorumaq üçün yoxlanılır.",
+        "feature3Title": "24/7 Dəstək",
+        "feature3Description": "Həsr olunmuş dəstək komandamız hər zaman suallarınız və narahatlıqlarınızla bağlı kömək etməyə hazırdır."
     },
     "Contact": {
         "title": "Bizimlə Əlaqə",
@@ -159,16 +170,62 @@
     },
     "Offers": {
         "title": "Xüsusi Təkliflər",
-        "description": "Eksklüziv təkliflər və promosiyalar",
-        "featured": "Seçilmiş Təkliflər",
+        "description": "Mükəmməl işçi və ya iş imkanı tapmağınıza kömək edən eksklüziv təkliflər və promosiyalar",
+        "new": "Yeni",
         "expires": "Bitmə Tarixi",
-        "terms": "Şərtlər və Qaydalar"
+        "getStarted": "Başla",
+        "premiumFeature": "Premium Xüsusiyyət",
+        "premiumListing": {
+            "title": "Premium Vakansiya",
+            "description": "Vakansiyanızı axtarış nəticələrinin ən yuxarısında yerləşdirin və görünürlüyünü artırın.",
+            "terms": {
+                "featured": "Axtarış nəticələrində üst sırada yerləşmə",
+                "priority": "Müvafiq kateqoriyalarda prioritet yerləşmə",
+                "analytics": "Detallı analitika və statistikalar",
+                "support": "Xüsusi dəstək komandasına müraciət"
+            }
+        },
+        "bundlePack": {
+            "title": "Paket Təklif",
+            "description": "Sərfəli paket təklifimizlə bir neçə vakansiya elan edin.",
+            "terms": {
+                "multiple": "5-ə qədər vakansiya elan etmə imkanı",
+                "discount": "Xüsusi paket endirimi",
+                "flexibility": "Çevik elan etmə cədvəli",
+                "validity": "6 ay müddətində etibarlıdır"
+            }
+        },
+        "startupPack": {
+            "title": "Startap Paketi",
+            "description": "İş bazarında öz mövqelərini qurmaq istəyən böyüməkdə olan şirkətlər üçün ideal.",
+            "terms": {
+                "basic": "Əsas vakansiya xüsusiyyətləri",
+                "visibility": "Axtarışda standart görünürlük",
+                "support": "Email dəstəyi",
+                "upgrade": "Premium-a yüksəltmə imkanı"
+            }
+        },
+        "terms": {
+            "title": "Şərtlər və Qaydalar",
+            "description": "Bütün təkliflər şərtlərimizə və qaydalarımıza tabedir. Premium xüsusiyyətlər əlavə yoxlama tələb edə bilər. Əlavə məlumat üçün dəstək komandamızla əlaqə saxlayın."
+        }
     },
     "Statistics": {
         "title": "Statistika",
-        "activeJobs": "Aktiv İşlər",
-        "companies": "Şirkətlər",
-        "applications": "Müraciətlər",
-        "successRate": "Uğur Dərəcəsi"
+        "live": "Canlı",
+        "daily": "Gündəlik",
+        "weekly": "Həftəlik",
+        "monthly": "Aylıq",
+        "dailyDescription": "Bu gün yeni vakansiyalar",
+        "weeklyDescription": "Bu həftə yeni vakansiyalar",
+        "monthlyDescription": "Bu ay yeni vakansiyalar",
+        "activeUsers": "Aktiv İstifadəçilər",
+        "totalListings": "Ümumi Vakansiyalar",
+        "premiumListings": "Premium Vakansiyalar",
+        "countries": "Ölkələr",
+        "mostViewed": "Ən Çox Baxılan Vəzifə",
+        "mostActiveCategory": "Ən Aktiv Kateqoriya",
+        "frontendDeveloper": "Frontend Developer",
+        "itTechnology": "IT & Texnologiya"
     }
 } 
