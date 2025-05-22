@@ -1,20 +1,13 @@
 "use client";
 
-import {
-  FiHeart,
-  FiX,
-  FiPrinter,
-  FiFlag,
-  FiSend,
-  FiShare2,
-  FiCopy,
-} from "react-icons/fi";
+import { FiHeart, FiX, FiPrinter, FiFlag, FiSend, FiShare2, FiCopy } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
-import { FC, useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Dialog } from "@headlessui/react";
+import Select, { StylesConfig, SingleValue } from "react-select";
+import { useState, useEffect } from "react";
+import type { ReactElement } from "react";
 import Image from "next/image";
-import Select, { SingleValue } from "react-select";
 
 interface Vacancy {
   id: number;
@@ -36,6 +29,17 @@ interface Vacancy {
 interface SelectOption {
   value: string;
   label: string;
+}
+
+interface FilterState {
+  category: string;
+  industry: string;
+  location: string;
+  employmentType: string;
+  salary: {
+    min: string;
+    max: string;
+  };
 }
 
 // Generate 50 mock vacancies
@@ -150,14 +154,14 @@ const vacancies: Vacancy[] = Array.from({ length: 50 }, (_, i) => {
   };
 });
 
-const Vacancies: FC = () => {
+const Vacancies = (): ReactElement => {
   const t = useTranslations("Vacancies");
   const tCommon = useTranslations("common");
   const [favorites, setFavorites] = useState<number[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [showFilters, setShowFilters] = useState(false);
-  const [filteredVacancies, setFilteredVacancies] = useState(vacancies);
-  const [activeFilters, setActiveFilters] = useState({
+  const [filteredVacancies, setFilteredVacancies] = useState<Vacancy[]>(vacancies);
+  const [activeFilters, setActiveFilters] = useState<FilterState>({
     category: "",
     industry: "",
     location: "",
@@ -167,7 +171,7 @@ const Vacancies: FC = () => {
       max: "",
     },
   });
-  const [pendingFilters, setPendingFilters] = useState({
+  const [pendingFilters, setPendingFilters] = useState<FilterState>({
     category: "",
     industry: "",
     location: "",
@@ -210,9 +214,9 @@ const Vacancies: FC = () => {
     }))
   ];
 
-  const selectStyles = {
-    control: (base: any) => ({
-      ...base,
+  const selectStyles: StylesConfig<SelectOption, false> = {
+    control: (baseStyles) => ({
+      ...baseStyles,
       border: "1px solid #e5e7eb",
       borderRadius: "0.5rem",
       boxShadow: "none",
@@ -220,8 +224,8 @@ const Vacancies: FC = () => {
         borderColor: "#e5e7eb",
       },
     }),
-    option: (base: any, state: any) => ({
-      ...base,
+    option: (baseStyles, state) => ({
+      ...baseStyles,
       backgroundColor: state.isSelected
         ? "#2563eb"
         : state.isFocused
