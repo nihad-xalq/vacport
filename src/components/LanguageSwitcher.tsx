@@ -30,12 +30,12 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ currentLocale }) => {
     if (!option) return;
 
     const newLocale = option.value;
-    
+
     // Split the pathname into segments
     const segments = pathname.split('/');
-    
+
     // Find the locale segment index (should be the first segment after the empty string)
-    const localeIndex = segments.findIndex((segment) => 
+    const localeIndex = segments.findIndex((segment) =>
       locales.includes(segment as Locale)
     );
 
@@ -74,6 +74,7 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ currentLocale }) => {
           "&:hover": {
             borderColor: "#e5e7eb",
           },
+          cursor: "pointer",
         }),
         valueContainer: (base) => ({
           ...base,
@@ -94,11 +95,12 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ currentLocale }) => {
           backgroundColor: state.isSelected
             ? "#2563eb"
             : state.isFocused
-            ? "#f3f4f6"
-            : "white",
+              ? "#f3f4f6"
+              : "white",
           color: state.isSelected ? "white" : "#1f2937",
           "&:hover": {
             backgroundColor: state.isSelected ? "#2563eb" : "#f3f4f6",
+            cursor: "pointer",
           },
         }),
         dropdownIndicator: (base) => ({

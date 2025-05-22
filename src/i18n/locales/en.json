@@ -1,19 +1,19 @@
 {
-  "navigation": {
-    "vacancies": "Vacancies",
-    "categories": "Categories",
-    "industries": "Industries",
-    "companies": "Companies",
+    "navigation": {
+        "vacancies": "Vacancies",
+        "categories": "Categories",
+        "industries": "Industries",
+        "companies": "Companies",
     "favorites": "Favorites",
     "subscriptions": "Subscriptions",
     "about": "About",
     "contact": "Contact",
     "offers": "Special Offers"
-  },
-  "language": {
-    "az": "Azerbaijani",
-    "en": "English",
-    "ru": "Russian"
+    },
+    "language": {
+        "az": "Azerbaijani",
+        "en": "English",
+        "ru": "Russian"
   },
   "common": {
     "search": "Search",
@@ -102,28 +102,36 @@
   },
   "Categories": {
     "title": "Job Categories",
-    "description": "Browse jobs by category",
-    "popular": "Popular Categories",
-    "all": "All Categories"
+    "description": "Browse through our comprehensive list of job categories to find your next career opportunity.",
+    "searchPlaceholder": "Search categories, roles, or skills...",
+    "positions": "positions",
+    "noResults": "No categories found",
+    "tryDifferent": "Try different keywords or browse all categories",
+    "categoryNotFound": "The requested category could not be found.",
+    "availablePositions": "Available Positions"
   },
   "Industries": {
     "title": "Industries",
     "description": "Browse jobs by industry",
     "popular": "Popular Industries",
-    "all": "All Industries"
+    "all": "All Industries",
+    "positions": "positions",
+    "availablePositions": "Available Positions",
+    "industryNotFound": "The requested industry could not be found.",
+    "searchPlaceholder": "Search industries, roles, or keywords..."
   },
   "Companies": {
     "title": "Companies",
-    "description": "Browse companies and their vacancies",
+    "description": "Discover top companies hiring now",
+    "searchPlaceholder": "Search companies by name, industry, or location...",
     "featured": "Featured Companies",
     "all": "All Companies",
+    "companyNotFound": "The requested company could not be found.",
     "details": {
       "about": "About Company",
-      "vacancies": "Open Positions",
-      "location": "Location",
-      "size": "Company Size",
       "founded": "Founded",
-      "website": "Website"
+      "website": "Visit Website",
+      "vacancies": "Open Positions"
     }
   },
   "Favorites": {

@@ -101,9 +101,13 @@
     },
     "Categories": {
         "title": "İş Kateqoriyaları",
-        "description": "Kateqoriyalara görə işlər",
-        "popular": "Populyar Kateqoriyalar",
-        "all": "Bütün Kateqoriyalar"
+        "description": "Növbəti karyera fürsətinizi tapmaq üçün iş kateqoriyalarımızı nəzərdən keçirin.",
+        "searchPlaceholder": "Kateqoriyalar, vəzifələr və ya bacarıqlar üzrə axtarış...",
+        "positions": "vakansiya",
+        "noResults": "Kateqoriya tapılmadı",
+        "tryDifferent": "Fərqli açar sözlər sınayın və ya bütün kateqoriyalara baxın",
+        "categoryNotFound": "Tələb olunan kateqoriya tapılmadı.",
+        "availablePositions": "Mövcud Vakansiyalar"
     },
     "Industries": {
         "title": "Sənayelər",
