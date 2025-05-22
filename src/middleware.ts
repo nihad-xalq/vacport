@@ -8,11 +8,14 @@ export default createMiddleware({
   // Used when no locale matches
   defaultLocale: defaultLocale,
 
-  // Only show locale prefix when it's not the default locale
-  localePrefix: "as-needed",
+  // Always show locale prefix
+  localePrefix: "always"
 });
 
 export const config = {
-  // Skip all paths that should not be internationalized
-  matcher: ["/((?!api|_next|.*\\..*).*)"],
+  // Match all pathnames except for
+  // - API routes
+  // - Static files
+  // - Internal Next.js paths
+  matcher: ['/((?!api|_next|.*\\..*).*)']
 };

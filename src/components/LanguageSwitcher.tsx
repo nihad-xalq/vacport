@@ -30,12 +30,25 @@ const LanguageSwitcher: FC<LanguageSwitcherProps> = ({ currentLocale }) => {
     if (!option) return;
 
     const newLocale = option.value;
-    // Here you would typically update the locale in your app's state management
-    // For now, we'll just log it
-    console.log("Switching to:", newLocale);
+    
+    // Split the pathname into segments
+    const segments = pathname.split('/');
+    
+    // Find the locale segment index (should be the first segment after the empty string)
+    const localeIndex = segments.findIndex((segment) => 
+      locales.includes(segment as Locale)
+    );
 
-    // Update the URL to reflect the new locale
-    const newPath = pathname.replace(`/${currentLocale}`, `/${newLocale}`);
+    if (localeIndex !== -1) {
+      // Replace the existing locale with the new one
+      segments[localeIndex] = newLocale;
+    } else {
+      // If no locale found, insert it after the first empty segment
+      segments.splice(1, 0, newLocale);
+    }
+
+    // Reconstruct the path
+    const newPath = segments.join('/');
     router.push(newPath);
   };
 

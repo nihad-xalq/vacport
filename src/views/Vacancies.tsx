@@ -173,24 +173,20 @@ const Vacancies: FC = () => {
             <div style="font-family: 'Segoe UI', Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 40px; color: #1a1a1a;">
                 <!-- Header -->
                 <div style="display: flex; align-items: center; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 2px solid #e2e8f0;">
-                    <img src="${selectedVacancy.logo}" alt="${
-      selectedVacancy.company
-    }" style="width: 60px; height: 60px; border-radius: 8px; object-fit: cover; margin-right: 20px; border: 1px solid #e2e8f0;">
+                    <img src="${selectedVacancy.logo}" alt="${selectedVacancy.company
+      }" style="width: 60px; height: 60px; border-radius: 8px; object-fit: cover; margin-right: 20px; border: 1px solid #e2e8f0;">
                     <div>
-                        <h1 style="color: #1a1a1a; font-size: 28px; margin: 0 0 5px 0; font-weight: 600;">${
-                          selectedVacancy.position
-                        }</h1>
-                        <h2 style="color: #4a5568; font-size: 18px; margin: 0; font-weight: 500;">${
-                          selectedVacancy.company
-                        }</h2>
+                        <h1 style="color: #1a1a1a; font-size: 28px; margin: 0 0 5px 0; font-weight: 600;">${selectedVacancy.position
+      }</h1>
+                        <h2 style="color: #4a5568; font-size: 18px; margin: 0; font-weight: 500;">${selectedVacancy.company
+      }</h2>
                     </div>
                 </div>
 
                 <!-- Key Details -->
                 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 30px; background: #f8fafc; padding: 20px; border-radius: 8px;">
-                    ${
-                      selectedVacancy.location
-                        ? `
+                    ${selectedVacancy.location
+        ? `
                         <div style="display: flex; align-items: center; gap: 8px;">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
@@ -202,11 +198,10 @@ const Vacancies: FC = () => {
                             </div>
                         </div>
                     `
-                        : ""
-                    }
-                    ${
-                      selectedVacancy.salary
-                        ? `
+        : ""
+      }
+                    ${selectedVacancy.salary
+        ? `
                         <div style="display: flex; align-items: center; gap: 8px;">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
@@ -217,11 +212,10 @@ const Vacancies: FC = () => {
                             </div>
                         </div>
                     `
-                        : ""
-                    }
-                    ${
-                      selectedVacancy.employmentType
-                        ? `
+        : ""
+      }
+                    ${selectedVacancy.employmentType
+        ? `
                         <div style="display: flex; align-items: center; gap: 8px;">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
@@ -232,11 +226,10 @@ const Vacancies: FC = () => {
                             </div>
                         </div>
                     `
-                        : ""
-                    }
-                    ${
-                      selectedVacancy.date
-                        ? `
+        : ""
+      }
+                    ${selectedVacancy.date
+        ? `
                         <div style="display: flex; align-items: center; gap: 8px;">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -250,14 +243,13 @@ const Vacancies: FC = () => {
                             </div>
                         </div>
                     `
-                        : ""
-                    }
+        : ""
+      }
                 </div>
 
                 <!-- Description -->
-                ${
-                  selectedVacancy.description
-                    ? `
+                ${selectedVacancy.description
+        ? `
                     <div style="margin-bottom: 30px;">
                         <h3 style="color: #1a1a1a; font-size: 18px; margin-bottom: 15px; font-weight: 600; display: flex; align-items: center; gap: 8px;">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -274,13 +266,12 @@ const Vacancies: FC = () => {
                         </div>
                     </div>
                 `
-                    : ""
-                }
+        : ""
+      }
 
                 <!-- Requirements -->
-                ${
-                  selectedVacancy.requirements
-                    ? `
+                ${selectedVacancy.requirements
+        ? `
                     <div style="margin-bottom: 30px;">
                         <h3 style="color: #1a1a1a; font-size: 18px; margin-bottom: 15px; font-weight: 600; display: flex; align-items: center; gap: 8px;">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -292,25 +283,24 @@ const Vacancies: FC = () => {
                         <div style="background: #fff; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0;">
                             <ul style="color: #4a5568; padding-left: 20px; margin: 0;">
                                 ${selectedVacancy.requirements
-                                  .map(
-                                    (req) => `
+          .map(
+            (req) => `
                                     <li style="margin-bottom: 10px; position: relative; padding-left: 5px;">
                                         ${req}
                                     </li>
                                 `
-                                  )
-                                  .join("")}
+          )
+          .join("")}
                             </ul>
                         </div>
                     </div>
                 `
-                    : ""
-                }
+        : ""
+      }
 
                 <!-- Benefits -->
-                ${
-                  selectedVacancy.benefits
-                    ? `
+                ${selectedVacancy.benefits
+        ? `
                     <div style="margin-bottom: 30px;">
                         <h3 style="color: #1a1a1a; font-size: 18px; margin-bottom: 15px; font-weight: 600; display: flex; align-items: center; gap: 8px;">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -321,28 +311,27 @@ const Vacancies: FC = () => {
                         <div style="background: #fff; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0;">
                             <ul style="color: #4a5568; padding-left: 20px; margin: 0;">
                                 ${selectedVacancy.benefits
-                                  .map(
-                                    (ben) => `
+          .map(
+            (ben) => `
                                     <li style="margin-bottom: 10px; position: relative; padding-left: 5px;">
                                         ${ben}
                                     </li>
                                 `
-                                  )
-                                  .join("")}
+          )
+          .join("")}
                             </ul>
                         </div>
                     </div>
                 `
-                    : ""
-                }
+        : ""
+      }
 
                 <!-- Application Details -->
                 <div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #e2e8f0;">
                     <h3 style="color: #1a1a1a; font-size: 18px; margin-bottom: 15px; font-weight: 600;">How to Apply</h3>
                     <div style="background: #f0f9ff; padding: 20px; border-radius: 8px; border: 1px solid #bae6fd;">
-                        ${
-                          selectedVacancy.applyLink
-                            ? `
+                        ${selectedVacancy.applyLink
+        ? `
                             <p style="margin: 0 0 10px 0; color: #0369a1;">
                                 <strong>Apply online:</strong> 
                                 <a href="${selectedVacancy.applyLink}" style="color: #0284c7; text-decoration: none; border-bottom: 1px solid #0284c7;">
@@ -350,18 +339,17 @@ const Vacancies: FC = () => {
                                 </a>
                             </p>
                         `
-                            : ""
-                        }
-                        ${
-                          selectedVacancy.email
-                            ? `
+        : ""
+      }
+                        ${selectedVacancy.email
+        ? `
                             <p style="margin: 0; color: #0369a1;">
                                 <strong>Contact email:</strong> 
                                 <span style="color: #0284c7;">${selectedVacancy.email}</span>
                             </p>
                         `
-                            : ""
-                        }
+        : ""
+      }
                     </div>
                 </div>
 
@@ -419,9 +407,9 @@ const Vacancies: FC = () => {
   // Find other vacancies from the same company (excluding the selected one)
   const otherVacancies = selectedVacancy
     ? vacancies.filter(
-        (v) =>
-          v.company === selectedVacancy.company && v.id !== selectedVacancy.id
-      )
+      (v) =>
+        v.company === selectedVacancy.company && v.id !== selectedVacancy.id
+    )
     : [];
 
   // Copy email to clipboard
@@ -495,9 +483,8 @@ const Vacancies: FC = () => {
         {vacancies.map((vacancy) => (
           <div
             key={vacancy.id}
-            className={`relative flex items-center bg-white rounded-lg shadow-sm px-4 py-3 border ${
-              vacancy.isPremium ? "border-yellow-400" : "border-gray-200"
-            } hover:bg-gray-50 cursor-pointer transition-colors`}
+            className={`relative flex items-center bg-white rounded-lg shadow-sm px-4 py-3 border ${vacancy.isPremium ? "border-yellow-400" : "border-gray-200"
+              } hover:bg-gray-50 cursor-pointer transition-colors`}
             onClick={() => {
               setSelectedVacancy(vacancy);
               setOpen(true);
@@ -543,11 +530,10 @@ const Vacancies: FC = () => {
                 aria-label={tCommon("save")}
               >
                 <FiHeart
-                  className={`w-5 h-5 ${
-                    favorites.includes(vacancy.id)
+                  className={`w-5 h-5 ${favorites.includes(vacancy.id)
                       ? "text-red-500 fill-red-500"
                       : "text-gray-400"
-                  }`}
+                    }`}
                   fill={
                     favorites.includes(vacancy.id) ? "currentColor" : "none"
                   }
@@ -624,21 +610,19 @@ const Vacancies: FC = () => {
             <div className="flex border-b px-8 pt-4 bg-white relative">
               <div className="flex relative w-full">
                 <button
-                  className={`py-2 px-4 text-sm font-semibold border-b-2 transition-colors ${
-                    activeTab === "description"
+                  className={`py-2 px-4 text-sm font-semibold border-b-2 transition-colors ${activeTab === "description"
                       ? "border-blue-600 text-blue-600"
                       : "border-transparent text-gray-500 hover:text-blue-600"
-                  }`}
+                    }`}
                   onClick={() => setActiveTab("description")}
                 >
                   {t("details.description")}
                 </button>
                 <button
-                  className={`py-2 px-4 text-sm font-semibold border-b-2 transition-colors flex items-center gap-2 ${
-                    activeTab === "other"
+                  className={`py-2 px-4 text-sm font-semibold border-b-2 transition-colors flex items-center gap-2 ${activeTab === "other"
                       ? "border-blue-600 text-blue-600"
                       : "border-transparent text-gray-500 hover:text-blue-600"
-                  }`}
+                    }`}
                   onClick={() => setActiveTab("other")}
                 >
                   {t("details.otherVacancies")}
@@ -819,9 +803,8 @@ const Vacancies: FC = () => {
               </div>
               <div className="relative">
                 <button
-                  className={`bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg flex items-center gap-2 shadow transition ${
-                    loading ? "opacity-60 cursor-not-allowed" : ""
-                  }`}
+                  className={`bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg flex items-center gap-2 shadow transition ${loading ? "opacity-60 cursor-not-allowed" : ""
+                    }`}
                   onClick={async () => {
                     if (loading) return;
                     setLoading(true);
@@ -1050,13 +1033,12 @@ const Vacancies: FC = () => {
                         !complaintDetails ||
                         isSubmittingComplaint
                       }
-                      className={`px-4 py-2 text-sm font-medium text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 ${
-                        !complaintReason ||
-                        !complaintDetails ||
-                        isSubmittingComplaint
+                      className={`px-4 py-2 text-sm font-medium text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 ${!complaintReason ||
+                          !complaintDetails ||
+                          isSubmittingComplaint
                           ? "bg-red-300 cursor-not-allowed"
                           : "bg-red-600 hover:bg-red-700"
-                      }`}
+                        }`}
                     >
                       {isSubmittingComplaint ? (
                         <div className="flex items-center gap-2">

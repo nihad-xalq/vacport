@@ -1,5 +1,9 @@
 import { redirect } from "next/navigation";
 
-export default function LocalePage() {
-  redirect("/vacancies");
+interface LocalePageProps {
+  params: { locale: string };
+}
+
+export default function LocalePage({ params: { locale } }: LocalePageProps) {
+  redirect(`/${locale}/vacancies`);
 }
