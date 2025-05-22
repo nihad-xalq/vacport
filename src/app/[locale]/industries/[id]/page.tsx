@@ -1,11 +1,12 @@
 "use client";
 
+import { FiArrowLeft, FiCode, FiDollarSign, FiHeart } from "react-icons/fi";
 import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { FiArrowLeft, FiCode, FiBriefcase, FiDollarSign, FiActivity, FiTruck, FiHome, FiShoppingBag, FiBook, FiUsers, FiHeart } from "react-icons/fi";
-import Link from "next/link";
-import Image from "next/image";
 import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { IconType } from "react-icons";
 
 // Types
 interface Vacancy {
@@ -28,7 +29,7 @@ interface Vacancy {
 interface Industry {
   id: number;
   name: string;
-  icon: any;
+  icon: IconType;
   count: number;
   description: string;
   popular: string[];
@@ -141,7 +142,7 @@ const IndustryPage = () => {
   const params = useParams();
   const t = useTranslations("Industries");
   const tCommon = useTranslations("common");
-  const tVacancies = useTranslations("Vacancies");
+  // const tVacancies = useTranslations("Vacancies");
   const [favorites, setFavorites] = useState<number[]>([]);
 
   const industry = industries.find(ind => ind.id === Number(params.id));
@@ -232,9 +233,8 @@ const IndustryPage = () => {
         {industry.vacancies?.map((vacancy) => (
           <div
             key={vacancy.id}
-            className={`relative flex items-center bg-white rounded-lg shadow-sm px-4 py-3 border ${
-              vacancy.isPremium ? "border-yellow-400" : "border-gray-200"
-            } hover:bg-gray-50 cursor-pointer transition-colors`}
+            className={`relative flex items-center bg-white rounded-lg shadow-sm px-4 py-3 border ${vacancy.isPremium ? "border-yellow-400" : "border-gray-200"
+              } hover:bg-gray-50 cursor-pointer transition-colors`}
           >
             {vacancy.isPremium && (
               <span
@@ -281,11 +281,10 @@ const IndustryPage = () => {
                 aria-label={tCommon("save")}
               >
                 <FiHeart
-                  className={`w-5 h-5 ${
-                    favorites.includes(vacancy.id)
-                      ? "text-red-500 fill-red-500"
-                      : "text-gray-400"
-                  }`}
+                  className={`w-5 h-5 ${favorites.includes(vacancy.id)
+                    ? "text-red-500 fill-red-500"
+                    : "text-gray-400"
+                    }`}
                   fill={favorites.includes(vacancy.id) ? "currentColor" : "none"}
                 />
               </button>

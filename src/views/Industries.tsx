@@ -17,6 +17,7 @@ import {
   FiBook,
   FiUsers
 } from "react-icons/fi";
+import { IconType } from "react-icons";
 
 // Types
 type IndustryColor = "blue" | "green" | "purple" | "pink" | "orange" | "teal" | "red" | "gray" | "indigo";
@@ -24,7 +25,7 @@ type IndustryColor = "blue" | "green" | "purple" | "pink" | "orange" | "teal" | 
 interface Industry {
   id: number;
   name: string;
-  icon: any;
+  icon: IconType;
   count: number;
   description: string;
   popular: string[];
