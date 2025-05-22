@@ -14,6 +14,7 @@ import { FC, useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Dialog } from "@headlessui/react";
 import Image from "next/image";
+import Select, { SingleValue } from "react-select";
 
 interface Vacancy {
   id: number;
@@ -30,6 +31,11 @@ interface Vacancy {
   benefits?: string[];
   applyLink?: string;
   email?: string;
+}
+
+interface SelectOption {
+  value: string;
+  label: string;
 }
 
 // Generate 50 mock vacancies
@@ -151,7 +157,17 @@ const Vacancies: FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [showFilters, setShowFilters] = useState(false);
   const [filteredVacancies, setFilteredVacancies] = useState(vacancies);
-  const [filters, setFilters] = useState({
+  const [activeFilters, setActiveFilters] = useState({
+    category: "",
+    industry: "",
+    location: "",
+    employmentType: "",
+    salary: {
+      min: "",
+      max: "",
+    },
+  });
+  const [pendingFilters, setPendingFilters] = useState({
     category: "",
     industry: "",
     location: "",
@@ -177,7 +193,49 @@ const Vacancies: FC = () => {
   const [isSubmittingComplaint, setIsSubmittingComplaint] = useState(false);
   const [complaintSubmitted, setComplaintSubmitted] = useState(false);
 
-  // Filter vacancies based on search query and filters
+  // Convert arrays to select options
+  const locationOptions: SelectOption[] = [
+    { value: "", label: t("filters.all") },
+    ...locations.map(location => ({
+      value: location,
+      label: location
+    }))
+  ];
+
+  const employmentOptions: SelectOption[] = [
+    { value: "", label: t("filters.all") },
+    ...employmentTypes.map(type => ({
+      value: type,
+      label: type
+    }))
+  ];
+
+  const selectStyles = {
+    control: (base: any) => ({
+      ...base,
+      border: "1px solid #e5e7eb",
+      borderRadius: "0.5rem",
+      boxShadow: "none",
+      "&:hover": {
+        borderColor: "#e5e7eb",
+      },
+    }),
+    option: (base: any, state: any) => ({
+      ...base,
+      backgroundColor: state.isSelected
+        ? "#2563eb"
+        : state.isFocused
+        ? "#f3f4f6"
+        : "white",
+      color: state.isSelected ? "white" : "#1f2937",
+      cursor: "pointer",
+      "&:hover": {
+        backgroundColor: state.isSelected ? "#2563eb" : "#f3f4f6",
+      },
+    })
+  };
+
+  // Filter vacancies based on search query and active filters
   useEffect(() => {
     let result = vacancies;
 
@@ -192,21 +250,61 @@ const Vacancies: FC = () => {
       );
     }
 
-    // Apply other filters
-    if (filters.location) {
+    // Apply active filters
+    if (activeFilters.location) {
       result = result.filter((vacancy) =>
-        vacancy.location?.toLowerCase().includes(filters.location.toLowerCase())
+        vacancy.location?.toLowerCase().includes(activeFilters.location.toLowerCase())
       );
     }
 
-    if (filters.employmentType) {
+    if (activeFilters.employmentType) {
       result = result.filter(
-        (vacancy) => vacancy.employmentType === filters.employmentType
+        (vacancy) => vacancy.employmentType === activeFilters.employmentType
       );
+    }
+
+    if (activeFilters.salary.min) {
+      result = result.filter((vacancy) => {
+        const salaryNum = parseInt(vacancy.salary?.replace(/[^0-9]/g, "") || "0");
+        return salaryNum >= parseInt(activeFilters.salary.min);
+      });
+    }
+
+    if (activeFilters.salary.max) {
+      result = result.filter((vacancy) => {
+        const salaryNum = parseInt(vacancy.salary?.replace(/[^0-9]/g, "") || "0");
+        return salaryNum <= parseInt(activeFilters.salary.max);
+      });
     }
 
     setFilteredVacancies(result);
-  }, [searchQuery, filters]);
+  }, [searchQuery, activeFilters]);
+
+  // Handle filter modal open
+  const handleOpenFilters = () => {
+    setPendingFilters(activeFilters); // Initialize pending filters with active filters
+    setShowFilters(true);
+  };
+
+  // Handle filter application
+  const handleApplyFilters = () => {
+    setActiveFilters(pendingFilters);
+    setShowFilters(false);
+  };
+
+  // Handle filter reset
+  const handleResetFilters = () => {
+    const emptyFilters = {
+      category: "",
+      industry: "",
+      location: "",
+      employmentType: "",
+      salary: { min: "", max: "" },
+    };
+    setPendingFilters(emptyFilters);
+    setActiveFilters(emptyFilters);
+    setShowFilters(false);
+  };
 
   const handlePrint = () => {
     if (!selectedVacancy) return;
@@ -547,7 +645,7 @@ const Vacancies: FC = () => {
           </svg>
         </div>
         <button
-          onClick={() => setShowFilters(true)}
+          onClick={handleOpenFilters}
           className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg flex items-center gap-2 transition-colors cursor-pointer"
         >
           <svg
@@ -1140,20 +1238,17 @@ const Vacancies: FC = () => {
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 {t("filters.location")}
               </label>
-              <select
-                value={filters.location}
-                onChange={(e) =>
-                  setFilters((prev) => ({ ...prev, location: e.target.value }))
+              <Select
+                options={locationOptions}
+                value={locationOptions.find(option => option.value === pendingFilters.location)}
+                onChange={(option: SingleValue<SelectOption>) => 
+                  setPendingFilters(prev => ({ ...prev, location: option?.value || "" }))
                 }
-                className="w-full p-2 border border-gray-200 rounded-lg"
-              >
-                <option value="" className="cursor-pointer">{t("filters.all")}</option>
-                {locations.map((location) => (
-                  <option key={location} value={location} className="cursor-pointer">
-                    {location}
-                  </option>
-                ))}
-              </select>
+                styles={selectStyles}
+                isSearchable={true}
+                isClearable={true}
+                placeholder={t("filters.all")}
+              />
             </div>
 
             {/* Employment Type Filter */}
@@ -1161,23 +1256,17 @@ const Vacancies: FC = () => {
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 {t("filters.employment")}
               </label>
-              <select
-                value={filters.employmentType}
-                onChange={(e) =>
-                  setFilters((prev) => ({
-                    ...prev,
-                    employmentType: e.target.value,
-                  }))
+              <Select
+                options={employmentOptions}
+                value={employmentOptions.find(option => option.value === pendingFilters.employmentType)}
+                onChange={(option: SingleValue<SelectOption>) => 
+                  setPendingFilters(prev => ({ ...prev, employmentType: option?.value || "" }))
                 }
-                className="w-full p-2 border border-gray-200 rounded-lg"
-              >
-                <option value="">{t("filters.all")}</option>
-                {employmentTypes.map((type) => (
-                  <option key={type} value={type}>
-                    {type}
-                  </option>
-                ))}
-              </select>
+                styles={selectStyles}
+                isSearchable={false}
+                isClearable={true}
+                placeholder={t("filters.all")}
+              />
             </div>
 
             {/* Salary Range */}
@@ -1189,9 +1278,9 @@ const Vacancies: FC = () => {
                 <input
                   type="number"
                   placeholder={t("filters.min")}
-                  value={filters.salary.min}
+                  value={pendingFilters.salary.min}
                   onChange={(e) =>
-                    setFilters((prev) => ({
+                    setPendingFilters((prev) => ({
                       ...prev,
                       salary: { ...prev.salary, min: e.target.value },
                     }))
@@ -1201,9 +1290,9 @@ const Vacancies: FC = () => {
                 <input
                   type="number"
                   placeholder={t("filters.max")}
-                  value={filters.salary.max}
+                  value={pendingFilters.salary.max}
                   onChange={(e) =>
-                    setFilters((prev) => ({
+                    setPendingFilters((prev) => ({
                       ...prev,
                       salary: { ...prev.salary, max: e.target.value },
                     }))
@@ -1216,22 +1305,13 @@ const Vacancies: FC = () => {
             {/* Action Buttons */}
             <div className="flex justify-end gap-3">
               <button
-                onClick={() => {
-                  setFilters({
-                    category: "",
-                    industry: "",
-                    location: "",
-                    employmentType: "",
-                    salary: { min: "", max: "" },
-                  });
-                  setShowFilters(false);
-                }}
+                onClick={handleResetFilters}
                 className="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
               >
                 {t("filters.reset")}
               </button>
               <button
-                onClick={() => setShowFilters(false)}
+                onClick={handleApplyFilters}
                 className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors cursor-pointer"
               >
                 {t("filters.apply")}
