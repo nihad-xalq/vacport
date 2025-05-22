@@ -229,8 +229,8 @@ const Vacancies = (): ReactElement => {
       backgroundColor: state.isSelected
         ? "#2563eb"
         : state.isFocused
-        ? "#f3f4f6"
-        : "white",
+          ? "#f3f4f6"
+          : "white",
       color: state.isSelected ? "white" : "#1f2937",
       cursor: "pointer",
       "&:hover": {
@@ -1245,7 +1245,7 @@ const Vacancies = (): ReactElement => {
               <Select
                 options={locationOptions}
                 value={locationOptions.find(option => option.value === pendingFilters.location)}
-                onChange={(option: SingleValue<SelectOption>) => 
+                onChange={(option: SingleValue<SelectOption>) =>
                   setPendingFilters(prev => ({ ...prev, location: option?.value || "" }))
                 }
                 styles={selectStyles}
@@ -1263,7 +1263,7 @@ const Vacancies = (): ReactElement => {
               <Select
                 options={employmentOptions}
                 value={employmentOptions.find(option => option.value === pendingFilters.employmentType)}
-                onChange={(option: SingleValue<SelectOption>) => 
+                onChange={(option: SingleValue<SelectOption>) =>
                   setPendingFilters(prev => ({ ...prev, employmentType: option?.value || "" }))
                 }
                 styles={selectStyles}
