@@ -9,6 +9,23 @@ import { useState, useEffect } from "react";
 import type { ReactElement } from "react";
 import Image from "next/image";
 
+// Add useDebounce hook
+function useDebounce<T>(value: T, delay: number): T {
+  const [debouncedValue, setDebouncedValue] = useState<T>(value);
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, delay]);
+
+  return debouncedValue;
+}
+
 interface Vacancy {
   id: number;
   position: string;
@@ -159,6 +176,7 @@ const Vacancies = (): ReactElement => {
   const tCommon = useTranslations("common");
   const [favorites, setFavorites] = useState<number[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const debouncedSearchQuery = useDebounce(searchQuery, 300); // 300ms delay
   const [showFilters, setShowFilters] = useState(false);
   const [filteredVacancies, setFilteredVacancies] = useState<Vacancy[]>(vacancies);
   const [activeFilters, setActiveFilters] = useState<FilterState>({
@@ -244,8 +262,8 @@ const Vacancies = (): ReactElement => {
     let result = vacancies;
 
     // Apply search filter
-    if (searchQuery) {
-      const query = searchQuery.toLowerCase();
+    if (debouncedSearchQuery) {
+      const query = debouncedSearchQuery.toLowerCase();
       result = result.filter(
         (vacancy) =>
           vacancy.position.toLowerCase().includes(query) ||
@@ -282,7 +300,7 @@ const Vacancies = (): ReactElement => {
     }
 
     setFilteredVacancies(result);
-  }, [searchQuery, activeFilters]);
+  }, [debouncedSearchQuery, activeFilters]);
 
   // Handle filter modal open
   const handleOpenFilters = () => {
