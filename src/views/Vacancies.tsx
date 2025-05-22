@@ -148,6 +148,19 @@ const Vacancies: FC = () => {
   const t = useTranslations("Vacancies");
   const tCommon = useTranslations("common");
   const [favorites, setFavorites] = useState<number[]>([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [showFilters, setShowFilters] = useState(false);
+  const [filteredVacancies, setFilteredVacancies] = useState(vacancies);
+  const [filters, setFilters] = useState({
+    category: "",
+    industry: "",
+    location: "",
+    employmentType: "",
+    salary: {
+      min: "",
+      max: "",
+    },
+  });
   const [open, setOpen] = useState(false);
   const [selectedVacancy, setSelectedVacancy] = useState<Vacancy | null>(null);
   const [activeTab, setActiveTab] = useState<"description" | "other">(
@@ -156,7 +169,6 @@ const Vacancies: FC = () => {
   const [showEmail, setShowEmail] = useState(false);
   const [copied, setCopied] = useState(false);
   const [loading, setLoading] = useState(false);
-  // const [showTooltip, setShowTooltip] = useState(false);
   const [showCopyTooltip, setShowCopyTooltip] = useState(false);
   const [showShareTooltip, setShowShareTooltip] = useState(false);
   const [showComplaintModal, setShowComplaintModal] = useState(false);
@@ -164,6 +176,37 @@ const Vacancies: FC = () => {
   const [complaintDetails, setComplaintDetails] = useState("");
   const [isSubmittingComplaint, setIsSubmittingComplaint] = useState(false);
   const [complaintSubmitted, setComplaintSubmitted] = useState(false);
+
+  // Filter vacancies based on search query and filters
+  useEffect(() => {
+    let result = vacancies;
+
+    // Apply search filter
+    if (searchQuery) {
+      const query = searchQuery.toLowerCase();
+      result = result.filter(
+        (vacancy) =>
+          vacancy.position.toLowerCase().includes(query) ||
+          vacancy.company.toLowerCase().includes(query) ||
+          vacancy.description?.toLowerCase().includes(query)
+      );
+    }
+
+    // Apply other filters
+    if (filters.location) {
+      result = result.filter((vacancy) =>
+        vacancy.location?.toLowerCase().includes(filters.location.toLowerCase())
+      );
+    }
+
+    if (filters.employmentType) {
+      result = result.filter(
+        (vacancy) => vacancy.employmentType === filters.employmentType
+      );
+    }
+
+    setFilteredVacancies(result);
+  }, [searchQuery, filters]);
 
   const handlePrint = () => {
     if (!selectedVacancy) return;
@@ -479,8 +522,53 @@ const Vacancies: FC = () => {
   return (
     <div className="">
       <h1 className="text-2xl font-bold mb-6">{t("title")}</h1>
+      <div className="flex gap-4 mb-6">
+        <div className="flex-1 relative">
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder={t("filters.search")}
+            className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+          <svg
+            className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+            />
+          </svg>
+        </div>
+        <button
+          onClick={() => setShowFilters(true)}
+          className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg flex items-center gap-2 transition-colors cursor-pointer"
+        >
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+            />
+          </svg>
+          {t("filters.title")}
+        </button>
+      </div>
       <div className="flex flex-col gap-2">
-        {vacancies.map((vacancy) => (
+        {filteredVacancies.map((vacancy) => (
           <div
             key={vacancy.id}
             className={`relative flex items-center bg-white rounded-lg shadow-sm px-4 py-3 border ${vacancy.isPremium ? "border-yellow-400" : "border-gray-200"
@@ -531,8 +619,8 @@ const Vacancies: FC = () => {
               >
                 <FiHeart
                   className={`w-5 h-5 ${favorites.includes(vacancy.id)
-                      ? "text-red-500 fill-red-500"
-                      : "text-gray-400"
+                    ? "text-red-500 fill-red-500"
+                    : "text-gray-400"
                     }`}
                   fill={
                     favorites.includes(vacancy.id) ? "currentColor" : "none"
@@ -550,17 +638,8 @@ const Vacancies: FC = () => {
         className="fixed z-50 inset-0 overflow-y-auto"
       >
         <div className="flex items-center justify-center min-h-screen px-4">
-          <div
-            className="fixed inset-0 bg-black bg-opacity-30"
-            aria-hidden="true"
-            onClick={() => setOpen(false)}
-          />
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-            className="relative bg-white rounded-lg shadow-xl max-w-lg w-full mx-auto p-0 z-50 flex flex-col focus:outline-none"
+          <div className="fixed inset-0 bg-black bg-opacity-30" aria-hidden="true" />
+          <div className="relative bg-white rounded-lg shadow-xl max-w-lg w-full mx-auto p-0 z-50 flex flex-col focus:outline-none"
             tabIndex={-1}
             onClick={(e) => e.stopPropagation()}
           >
@@ -611,8 +690,8 @@ const Vacancies: FC = () => {
               <div className="flex relative w-full">
                 <button
                   className={`py-2 px-4 text-sm font-semibold border-b-2 transition-colors ${activeTab === "description"
-                      ? "border-blue-600 text-blue-600"
-                      : "border-transparent text-gray-500 hover:text-blue-600"
+                    ? "border-blue-600 text-blue-600"
+                    : "border-transparent text-gray-500 hover:text-blue-600"
                     }`}
                   onClick={() => setActiveTab("description")}
                 >
@@ -620,8 +699,8 @@ const Vacancies: FC = () => {
                 </button>
                 <button
                   className={`py-2 px-4 text-sm font-semibold border-b-2 transition-colors flex items-center gap-2 ${activeTab === "other"
-                      ? "border-blue-600 text-blue-600"
-                      : "border-transparent text-gray-500 hover:text-blue-600"
+                    ? "border-blue-600 text-blue-600"
+                    : "border-transparent text-gray-500 hover:text-blue-600"
                     }`}
                   onClick={() => setActiveTab("other")}
                 >
@@ -898,7 +977,7 @@ const Vacancies: FC = () => {
                 </AnimatePresence>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </Dialog>
       {/* Complaint Modal */}
@@ -908,171 +987,257 @@ const Vacancies: FC = () => {
         className="fixed z-50 inset-0 overflow-y-auto"
       >
         <div className="flex items-center justify-center min-h-screen px-4">
-          <div
-            className="fixed inset-0 bg-black bg-opacity-30"
-            aria-hidden="true"
-            onClick={() =>
-              !isSubmittingComplaint && setShowComplaintModal(false)
-            }
-          />
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
-            className="relative bg-white rounded-lg shadow-xl max-w-lg w-full mx-auto p-0 z-50 flex flex-col focus:outline-none"
-            tabIndex={-1}
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close button */}
-            <button
-              onClick={() =>
-                !isSubmittingComplaint && setShowComplaintModal(false)
-              }
-              className="absolute top-3 right-3 p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
-              aria-label={tCommon("cancel")}
-              disabled={isSubmittingComplaint}
-            >
-              <FiX className="w-5 h-5 text-gray-500" />
-            </button>
+          <div className="fixed inset-0 bg-black bg-opacity-30" aria-hidden="true" />
+          <div className="relative bg-white rounded-lg shadow-xl max-w-md w-full mx-auto p-6">
+            <h3 className="text-2xl font-bold text-gray-900 mb-2">
+              {t("complaint.title")}
+            </h3>
+            <p className="text-gray-600 text-sm">
+              {t("complaint.description")}
+            </p>
+            {complaintSubmitted ? (
+              <div className="text-center py-8">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <svg
+                    className="w-8 h-8 text-green-500"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                </div>
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">
+                  {t("complaint.thankYou")}
+                </h4>
+                <p className="text-gray-600">{t("complaint.submitted")}</p>
+              </div>
+            ) : (
+              <div className="space-y-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {t("complaint.reason")}
+                  </label>
+                  <select
+                    value={complaintReason}
+                    onChange={(e) => setComplaintReason(e.target.value)}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    disabled={isSubmittingComplaint}
+                  >
+                    <option value="">{t("complaint.selectReason")}</option>
+                    <option value="misleading">
+                      {t("complaint.reasons.misleading")}
+                    </option>
+                    <option value="spam">
+                      {t("complaint.reasons.spam")}
+                    </option>
+                    <option value="inappropriate">
+                      {t("complaint.reasons.inappropriate")}
+                    </option>
+                    <option value="fake">
+                      {t("complaint.reasons.fake")}
+                    </option>
+                    <option value="discrimination">
+                      {t("complaint.reasons.discrimination")}
+                    </option>
+                    <option value="other">
+                      {t("complaint.reasons.other")}
+                    </option>
+                  </select>
+                </div>
 
-            {/* Header */}
-            <div className="px-8 pt-8 pb-4 border-b">
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                {t("complaint.title")}
-              </h2>
-              <p className="text-gray-600 text-sm">
-                {t("complaint.description")}
-              </p>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {t("complaint.details")}
+                  </label>
+                  <textarea
+                    value={complaintDetails}
+                    onChange={(e) => setComplaintDetails(e.target.value)}
+                    rows={4}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder={t("complaint.detailsPlaceholder")}
+                    disabled={isSubmittingComplaint}
+                  />
+                </div>
+
+                <div className="flex justify-end gap-3">
+                  <button
+                    onClick={() => setShowComplaintModal(false)}
+                    className="px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg"
+                    disabled={isSubmittingComplaint}
+                  >
+                    {tCommon("cancel")}
+                  </button>
+                  <button
+                    onClick={handleSubmitComplaint}
+                    disabled={
+                      !complaintReason ||
+                      !complaintDetails ||
+                      isSubmittingComplaint
+                    }
+                    className={`px-4 py-2 text-sm font-medium text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 ${!complaintReason ||
+                      !complaintDetails ||
+                      isSubmittingComplaint
+                      ? "bg-red-300 cursor-not-allowed"
+                      : "bg-red-600 hover:bg-red-700"
+                      }`}
+                  >
+                    {isSubmittingComplaint ? (
+                      <div className="flex items-center gap-2">
+                        <svg
+                          className="animate-spin h-4 w-4 text-white"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          ></circle>
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          ></path>
+                        </svg>
+                        {t("complaint.submitting")}
+                      </div>
+                    ) : (
+                      t("complaint.submit")
+                    )}
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      </Dialog>
+      {/* Filters Modal */}
+      <Dialog
+        open={showFilters}
+        onClose={() => setShowFilters(false)}
+        className="relative z-50"
+      >
+        <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
+
+        <div className="fixed inset-0 flex items-center justify-center p-4">
+          <Dialog.Panel className="w-full max-w-md rounded-lg bg-white p-6">
+            <Dialog.Title className="text-lg font-semibold mb-4">
+              {t("filters.title")}
+            </Dialog.Title>
+
+            {/* Location Filter */}
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                {t("filters.location")}
+              </label>
+              <select
+                value={filters.location}
+                onChange={(e) =>
+                  setFilters((prev) => ({ ...prev, location: e.target.value }))
+                }
+                className="w-full p-2 border border-gray-200 rounded-lg"
+              >
+                <option value="" className="cursor-pointer">{t("filters.all")}</option>
+                {locations.map((location) => (
+                  <option key={location} value={location} className="cursor-pointer">
+                    {location}
+                  </option>
+                ))}
+              </select>
             </div>
 
-            {/* Content */}
-            <div className="px-8 py-6">
-              {complaintSubmitted ? (
-                <div className="text-center py-8">
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg
-                      className="w-8 h-8 text-green-500"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M5 13l4 4L19 7"
-                      ></path>
-                    </svg>
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    {t("complaint.thankYou")}
-                  </h3>
-                  <p className="text-gray-600">{t("complaint.submitted")}</p>
-                </div>
-              ) : (
-                <div className="space-y-6">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      {t("complaint.reason")}
-                    </label>
-                    <select
-                      value={complaintReason}
-                      onChange={(e) => setComplaintReason(e.target.value)}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      disabled={isSubmittingComplaint}
-                    >
-                      <option value="">{t("complaint.selectReason")}</option>
-                      <option value="misleading">
-                        {t("complaint.reasons.misleading")}
-                      </option>
-                      <option value="spam">
-                        {t("complaint.reasons.spam")}
-                      </option>
-                      <option value="inappropriate">
-                        {t("complaint.reasons.inappropriate")}
-                      </option>
-                      <option value="fake">
-                        {t("complaint.reasons.fake")}
-                      </option>
-                      <option value="discrimination">
-                        {t("complaint.reasons.discrimination")}
-                      </option>
-                      <option value="other">
-                        {t("complaint.reasons.other")}
-                      </option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      {t("complaint.details")}
-                    </label>
-                    <textarea
-                      value={complaintDetails}
-                      onChange={(e) => setComplaintDetails(e.target.value)}
-                      rows={4}
-                      className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                      placeholder={t("complaint.detailsPlaceholder")}
-                      disabled={isSubmittingComplaint}
-                    />
-                  </div>
-
-                  <div className="flex justify-end gap-3">
-                    <button
-                      onClick={() => setShowComplaintModal(false)}
-                      className="px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded-lg"
-                      disabled={isSubmittingComplaint}
-                    >
-                      {tCommon("cancel")}
-                    </button>
-                    <button
-                      onClick={handleSubmitComplaint}
-                      disabled={
-                        !complaintReason ||
-                        !complaintDetails ||
-                        isSubmittingComplaint
-                      }
-                      className={`px-4 py-2 text-sm font-medium text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 ${!complaintReason ||
-                          !complaintDetails ||
-                          isSubmittingComplaint
-                          ? "bg-red-300 cursor-not-allowed"
-                          : "bg-red-600 hover:bg-red-700"
-                        }`}
-                    >
-                      {isSubmittingComplaint ? (
-                        <div className="flex items-center gap-2">
-                          <svg
-                            className="animate-spin h-4 w-4 text-white"
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                          >
-                            <circle
-                              className="opacity-25"
-                              cx="12"
-                              cy="12"
-                              r="10"
-                              stroke="currentColor"
-                              strokeWidth="4"
-                            ></circle>
-                            <path
-                              className="opacity-75"
-                              fill="currentColor"
-                              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                            ></path>
-                          </svg>
-                          {t("complaint.submitting")}
-                        </div>
-                      ) : (
-                        t("complaint.submit")
-                      )}
-                    </button>
-                  </div>
-                </div>
-              )}
+            {/* Employment Type Filter */}
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                {t("filters.employment")}
+              </label>
+              <select
+                value={filters.employmentType}
+                onChange={(e) =>
+                  setFilters((prev) => ({
+                    ...prev,
+                    employmentType: e.target.value,
+                  }))
+                }
+                className="w-full p-2 border border-gray-200 rounded-lg"
+              >
+                <option value="">{t("filters.all")}</option>
+                {employmentTypes.map((type) => (
+                  <option key={type} value={type}>
+                    {type}
+                  </option>
+                ))}
+              </select>
             </div>
-          </motion.div>
+
+            {/* Salary Range */}
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                {t("filters.salary")}
+              </label>
+              <div className="flex gap-4">
+                <input
+                  type="number"
+                  placeholder={t("filters.min")}
+                  value={filters.salary.min}
+                  onChange={(e) =>
+                    setFilters((prev) => ({
+                      ...prev,
+                      salary: { ...prev.salary, min: e.target.value },
+                    }))
+                  }
+                  className="w-1/2 p-2 border border-gray-200 rounded-lg"
+                />
+                <input
+                  type="number"
+                  placeholder={t("filters.max")}
+                  value={filters.salary.max}
+                  onChange={(e) =>
+                    setFilters((prev) => ({
+                      ...prev,
+                      salary: { ...prev.salary, max: e.target.value },
+                    }))
+                  }
+                  className="w-1/2 p-2 border border-gray-200 rounded-lg"
+                />
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex justify-end gap-3">
+              <button
+                onClick={() => {
+                  setFilters({
+                    category: "",
+                    industry: "",
+                    location: "",
+                    employmentType: "",
+                    salary: { min: "", max: "" },
+                  });
+                  setShowFilters(false);
+                }}
+                className="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors cursor-pointer"
+              >
+                {t("filters.reset")}
+              </button>
+              <button
+                onClick={() => setShowFilters(false)}
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors cursor-pointer"
+              >
+                {t("filters.apply")}
+              </button>
+            </div>
+          </Dialog.Panel>
         </div>
       </Dialog>
     </div>

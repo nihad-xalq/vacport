@@ -1,9 +1,10 @@
 import { redirect } from "next/navigation";
 
 interface LocalePageProps {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
-export default function LocalePage({ params: { locale } }: LocalePageProps) {
+export default async function LocalePage({ params }: LocalePageProps) {
+  const { locale } = await params;
   redirect(`/${locale}/vacancies`);
 }

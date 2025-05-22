@@ -37,14 +37,20 @@
         "title": "Mövcud Vakansiyalar",
         "description": "Ən son vakansiyaları nəzərdən keçirin",
         "filters": {
-            "title": "Vakansiyaları Filtrlə",
+            "title": "Filtrlər",
+            "search": "Vakansiyaları axtar...",
             "category": "Kateqoriya",
             "industry": "Sənaye",
             "company": "Şirkət",
             "location": "Məkan",
             "salary": "Maaş Aralığı",
             "experience": "Təcrübə Səviyyəsi",
-            "employment": "İş Növü"
+            "employment": "İş Növü",
+            "all": "Hamısı",
+            "min": "Minimum maaş",
+            "max": "Maksimum maaş",
+            "reset": "Sıfırla",
+            "apply": "Filtrləri Tətbiq Et"
         },
         "sort": {
             "newest": "Ən Yeni",
