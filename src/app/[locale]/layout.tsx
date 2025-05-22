@@ -1,8 +1,7 @@
 import { locales, type Locale } from "@/i18n/config";
-// import QuickActions from "@/components/QuickActions";
 import Sidebar from "@/components/semantic/Sidebar";
 import { NextIntlClientProvider } from "next-intl";
-// import Statistics from "@/components/Statistitcs";
+import Statistics from "@/components/Statistitcs";
 import Main from "@/components/semantic/Main";
 import { notFound } from "next/navigation";
 import { Poppins } from "next/font/google";
@@ -63,8 +62,7 @@ export default async function LocaleLayout({
           <div className="flex">
             <Sidebar />
             <Main>{children}</Main>
-            {/* <Statistics /> */}
-            {/* <QuickActions /> */}
+            <Statistics />
           </div>
         </NextIntlClientProvider>
       </body>

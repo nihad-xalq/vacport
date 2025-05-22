@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+
+/* Disable number input arrows */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     appearance: none;
@@ -7,8 +9,28 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
-/* Firefox */
 input[type=number] {
     appearance: textfield;
     -moz-appearance: textfield;
+}
+
+/* Scrollbar */
+/* Custom scrollbar styles */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4ade80;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #22c55e;
 }
